@@ -20,6 +20,9 @@ function Header (){
 <NavLink to= '/all_menu' exact>
 <button>all menu</button>
 </NavLink>
+
+
+
         </div>
     )
 }
