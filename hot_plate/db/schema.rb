@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_08_223555) do
+ActiveRecord::Schema.define(version: 2023_02_09_230111) do
 
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 2023_02_08_223555) do
     t.boolean "entree"
     t.boolean "appetizer"
     t.boolean "dessert"
-    t.boolean " "
+    t.boolean "all_times"
+    t.boolean "pescetarian"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 2023_02_08_223555) do
     t.boolean "peanuts"
     t.boolean "shellfish"
     t.boolean "dairy"
+    t.boolean "pescetarian"
   end
 
   create_table "visits", force: :cascade do |t|

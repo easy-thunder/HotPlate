@@ -78,4 +78,11 @@ end
 end
 
 
+User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true)
+
+
+20. times do 
+    User.create(name: Faker::Name.name, email:Faker::Internet.email, password: Faker::Internet.password)
+end
+
 puts "✅ Done seeding!"
