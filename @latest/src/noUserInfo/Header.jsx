@@ -5,19 +5,20 @@ import { Button } from "@material-tailwind/react";
 
 
 
-function Header (){
+function Header ({handleLoginInfo}){
     const [open, setOpen] = useState(false)
     const history = useHistory()
 
 function validateUser(e){
     e.preventDefault()
 
-    email = e.target.sign_in_email.value
-    password = e.target.sign_in_password.value
-
+    const email = e.target.sign_in_email.value
+    const password = e.target.sign_in_password.value
+    console.log(email)
     fetch(`http://localhost:9292/users/${email}/${password}`)
     .then(r=>r.json())
-    .then(user => history.push(`/UserHome/${user.uuid}`))
+    .then(user => handleLoginInfo(user))
+    .then(user => history.push(`/userHome/${user.uuid}`))
 }
 
 

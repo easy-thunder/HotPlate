@@ -8,24 +8,62 @@ import Header from "./noUserInfo/Header"
 import AllMenu from './noUserInfo/All_menu'
 import SignUp from './noUserInfo/SignUp'
 
+import UserHeader from './user/UserHeader'
+import UserHome from './user/UserHome'
+
 
 function App() {
 // const [test, setTest]= useState([])
 const [menuItems, setMenuItems] = useState([])
+const [login, setLogin] = useState('')
+const [userInfo, setUserInfo] = useState({})
+
+
+
 useEffect(()=>{
   fetch("http://localhost:9292/menu_items")
   .then(r => r.json())
   .then(setMenuItems);
 },[])
 
+
+
+
+
+
+function handleLoginInfo(user){
+  
+    console.log(user)
+    
+  setLogin(login => (login+":"+user.uuid))
+
+  setUserInfo(user)
+  // setCart(loginInfo.cart)
+
+}
+
+
+
+
 // console.log("test")
 
 
   return (
     <div className="App">
-      <Header />
+      {login ? <UserHeader login={login}/> : <Header handleLoginInfo = {handleLoginInfo} />}
 
     <Switch>
+
+
+    <Route exact path = {`/userHome/${login}`}>
+        <UserHome userInfo={userInfo} 
+          // onSignOut={onSignOut}
+
+        />
+      </Route>
+
+
+
 
       <Route exact path= "/">
         <Home menuItems ={menuItems}/>
