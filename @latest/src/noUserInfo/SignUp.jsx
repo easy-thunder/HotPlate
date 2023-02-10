@@ -60,7 +60,7 @@ function SignUp(){
                 <br />
                 <input type='submit' />
 
-                test
+                
             </form>
         </div>
     )
