@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
 
 
   get "/users/:email/:password" do 
-   user = User.user_match(params[:username])
+   user = User.user_match(params[:email], params[:password])
     User.find(params[:email])
   end
 
@@ -30,9 +30,7 @@ class ApplicationController < Sinatra::Base
   end
 
 
-  def user_params 
-    params.permit(:email, :password)
-  end
+
 
 
 
@@ -43,6 +41,6 @@ class ApplicationController < Sinatra::Base
 
 end
 
-  
 
-end
+
+
