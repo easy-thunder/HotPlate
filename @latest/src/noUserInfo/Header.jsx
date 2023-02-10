@@ -4,13 +4,18 @@ import { useState } from "react"
 
 
 
-function Header (){
+function Header ({handleLoginInfo}){
     const [open, setOpen] = useState(false)
     const history = useHistory()
 
 function validateUser(){
 
+    email = e.target.sign_in_email.value
+    password = e.target.sign_in_password.value
 
+    fetch(`http://localhost:9292/users/${email}/${password}`)
+    .then(r=>r.json())
+    .then(user => history.push(`/UserHome/${user.uuid}`))
 }
 
 

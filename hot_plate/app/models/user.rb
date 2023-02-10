@@ -4,7 +4,7 @@ has_many :menu_itmes, through: :visits
 
 def self.user_match(email, password)
 
-email_valid =  self.all.map do |user|
+email_valid =  self.all.find do |user|
 if user.email == email && user.password == password
     user
 else false
