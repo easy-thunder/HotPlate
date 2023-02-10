@@ -78,7 +78,7 @@ end
 end
 
 
-User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true)
+User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true, uuid:12345)
 
 
 20. times do 

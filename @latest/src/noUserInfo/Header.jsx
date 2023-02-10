@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import { useState } from "react"
 
 
@@ -6,9 +6,11 @@ import { useState } from "react"
 
 function Header (){
     const [open, setOpen] = useState(false)
+    const history = useHistory()
 
 function validateUser(){
-    
+
+
 }
 
 
@@ -35,10 +37,10 @@ function validateUser(){
 <div>
     <form onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
         <label>email</label>
-        <input type='sign_in_email' />
+        <input type='email' id = "sign_in_email" />
         <br />
         <label>password</label>
-        <input type="sign_in_password" />
+        <input type="password" id="sign_in_email" />
         <br />
         <input type='submit' />
     </form>

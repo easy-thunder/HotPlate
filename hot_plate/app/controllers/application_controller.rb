@@ -12,15 +12,32 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+
+
+
   get "/user/:id" do 
     if email_valid
-    User.find(params[:id])
+    User.find(params[:uuid])
   end
+
+
+
+
 
   post '/users' do 
     user = User.find(params[:id])
     user.to_json
   end
+
+
+
+
+
+
+
+
+
+end
   
 
 end
