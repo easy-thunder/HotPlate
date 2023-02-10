@@ -9,9 +9,15 @@ function Header (){
     const [open, setOpen] = useState(false)
     const history = useHistory()
 
-function validateUser(){
+function validateUser(e){
+    e.preventDefault()
 
+    email = e.target.sign_in_email.value
+    password = e.target.sign_in_password.value
 
+    fetch(`http://localhost:9292/users/${email}/${password}`)
+    .then(r=>r.json())
+    .then(user => history.push(`/UserHome/${user.uuid}`))
 }
 
 
@@ -43,7 +49,7 @@ function validateUser(){
         <input type='email' id = "sign_in_email" />
         <br />
         <label>password</label>
-        <input type="password" id="sign_in_email" />
+        <input type="password" id="sign_in_password" />
         <br />
         <input type='submit' />
     </form>

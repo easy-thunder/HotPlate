@@ -15,9 +15,9 @@ class ApplicationController < Sinatra::Base
 
 
 
-  get "/user/:id" do 
-    if email_valid
-    User.find(params[:uuid])
+  get "/users/:email/:password" do 
+   user = User.user_match(params[:email], params[:password])
+    User.find(params[:email])
   end
 
 
@@ -37,7 +37,10 @@ class ApplicationController < Sinatra::Base
 
 
 
-end
-  
+
 
 end
+
+
+
+
