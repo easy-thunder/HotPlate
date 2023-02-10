@@ -12,12 +12,17 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+  get "/users/:id" do 
+    user = User.find(params[:id])
+    user.to_json
+  end
 
 
 
   get "/users/:email/:password" do 
    user = User.user_match(params[:email], params[:password])
-    User.find(params[:email])
+   user.to_json
+    # User.find(params[:email])
   end
 
 
