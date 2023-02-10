@@ -8,7 +8,6 @@ function SignUp(){
     return(
         <div className="border">
             <form>
-                
                 <label>name</label>
                 <input type="text" placeholder="name" id="name"/>
                 <br />

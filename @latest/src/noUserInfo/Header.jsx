@@ -1,6 +1,5 @@
 import { NavLink, useHistory } from "react-router-dom"
 import { useState } from "react"
-import { Button } from "@material-tailwind/react";
 
 
 
@@ -9,27 +8,22 @@ function Header (){
     const [open, setOpen] = useState(false)
     const history = useHistory()
 
-function validateUser(e){
-    e.preventDefault()
+function validateUser(){
 
-    email = e.target.sign_in_email.value
-    password = e.target.sign_in_password.value
 
-    fetch(`http://localhost:9292/users/${email}/${password}`)
-    .then(r=>r.json())
-    .then(user => history.push(`/UserHome/${user.uuid}`))
 }
 
 
+<dev>
+    <h1>Test</h1>
+</dev>
 
 
     return(
-<div> 
+        <div> 
 <span>
-
-<div className="flex w-max gap-4">
-<Button className = "" onClick = {()=> setOpen(open=>(!open))}>sign in</Button>
-</div>
+    
+<button className = "" onClick = {()=> setOpen(open=>(!open))}>sign in</button>
 
 <NavLink to = '/sign_up' exact>
 <button>sign up</button>
@@ -49,7 +43,7 @@ function validateUser(e){
         <input type='email' id = "sign_in_email" />
         <br />
         <label>password</label>
-        <input type="password" id="sign_in_password" />
+        <input type="password" id="sign_in_email" />
         <br />
         <input type='submit' />
     </form>
