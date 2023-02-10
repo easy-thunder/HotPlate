@@ -1,5 +1,6 @@
 import { NavLink, useHistory } from "react-router-dom"
 import { useState } from "react"
+import { Button } from "@material-tailwind/react";
 
 
 
@@ -17,9 +18,12 @@ function validateUser(){
 
 
     return(
-        <div> 
+<div> 
 <span>
-<button className = "" onClick = {()=> setOpen(open=>(!open))}>sign in</button>
+
+<div className="flex w-max gap-4">
+<Button className = "" onClick = {()=> setOpen(open=>(!open))}>sign in</Button>
+</div>
 
 <NavLink to = '/sign_up' exact>
 <button>sign up</button>
