@@ -13,7 +13,7 @@ function SignUp(){
                 <input type="text" placeholder="name" id="name"/>
                 <br />
                 <label>email</label>
-                <input type="text" placeholder="email" id = "email"/>
+                <input type="text" placeholder="email" id = "sign_up_email"/>
                 <br />
                 <label>phone number</label>
                 <input type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
@@ -53,7 +53,7 @@ function SignUp(){
 
 
                 <label>password</label>
-                <input type='password' placeholder="password"  id="password"/>
+                <input type='password' placeholder="password"  id="sign_up_password"/>
                 <br />
                 <label>confirm password</label>
                 <input type='password' placeholder="confirm" id="confirm"/>

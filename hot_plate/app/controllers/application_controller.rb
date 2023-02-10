@@ -12,8 +12,9 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
-  get "/user_match" do 
-    user_match = User.all
+  get "/user/:id" do 
+    if email_valid
+    User.find(params[:id])
   end
 
   post '/users' do 
