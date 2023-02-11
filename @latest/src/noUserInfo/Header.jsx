@@ -43,6 +43,8 @@ function validateUser(e){
 <button>sign up</button>
 </NavLink>
 
+
+
 <NavLink to= '/' exact>
 <button>home</button>
 </NavLink>
