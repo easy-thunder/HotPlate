@@ -1,13 +1,35 @@
 
 
-
 function SignUp(){
 
+
+function signUp(e){
+e.preventDefault()
+newUser = 
+    {
+    name: e.target.name.value,
+    email: e.target.sign_up_email.value,
+    phone_number: e.target.phone.value,
+    gluten:  e.target.gluten.checked,
+    vegetarian: e.target.vegetarian.checked,
+    pescetarian: e.target.pescetarian.checked,
+    tree_nut: e.target.tree_nut.checked,
+    soy: e.target.soy.checked,
+    peanuts: e.target.peanuts.checked,
+    shellfish: e.target.shellfish.checked,
+    dairy: e.target.dairy.checked,
+    anyOther: e.target.anyOther.value,
+    sign_up_password: e.target.sign_up_password.value,
+    confirm_password: e.target.confirm.value
+}
+
+
+}
 
 
     return(
         <div className="border">
-            <form>
+            <form onSubmit={signUp}>
                 <label>name</label>
                 <input type="text" placeholder="name" id="name"/>
                 <br />
