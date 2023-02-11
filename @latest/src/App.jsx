@@ -33,7 +33,6 @@ useEffect(()=>{
 
 function handleLoginInfo(user){
   
-    console.log(user)
     
   setLogin(login => (login+":"+user.uuid))
 
@@ -50,13 +49,23 @@ function handleLoginInfo(user){
 
   return (
     <div className="App">
-      {login ? <UserHeader login={login}/> : <Header handleLoginInfo = {handleLoginInfo} />}
+      {login ? <UserHeader
+      login={login}
+      /> 
+      :
+      <Header 
+      handleLoginInfo = {handleLoginInfo} 
+      />}
 
     <Switch>
 
-
+{/* user info below */}
     <Route exact path = {`/userHome/${login}`}>
-        <UserHome userInfo={userInfo} 
+        <UserHome 
+        // login={login} 
+        userInfo={userInfo}
+
+
           // onSignOut={onSignOut}
 
         />
@@ -64,7 +73,7 @@ function handleLoginInfo(user){
 
 
 
-
+{/* no user info below */}
       <Route exact path= "/">
         <Home menuItems ={menuItems}/>
       </Route>
