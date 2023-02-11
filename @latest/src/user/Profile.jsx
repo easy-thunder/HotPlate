@@ -1,7 +1,9 @@
 import { useHistory } from "react-router-dom"
+import { useState } from "react"
 
-function Profile({userInfo, setLogin}){
+function Profile({userInfo, setLogin, handleLoginInfo, clearLoginInfo}){
 const history = useHistory()
+const [open, setOpen] = useState(false)
 
 
 function deleteProfile(){
@@ -11,14 +13,74 @@ function deleteProfile(){
         })
         .then(setLogin(login =>('')))
         .then(history.push(`/`))
+        .catch(Error)
     }
 }
 
-function updateProfile(){
+function updateProfile(e){
+e.preventDefault()
+let newPassword
+let passwordCheck
+if (e.target.sign_up_password.value === '') {newPassword = userInfo.password, passwordCheck = userInfo.password}
+else{newPassword = e.target.sign_up_password.value, passwordCheck = e.target.confirm.value}
+
+
+
+    const updateUser = 
+    {
+    uuid: userInfo.uuid,
+    name: e.target.name.value,
+    email: e.target.sign_up_email.value,
+    phone_number: e.target.phone.value,
+    gluten:  e.target.gluten.checked,
+    vegitarian: e.target.vegetarian.checked,
+    pescetarian: e.target.pescetarian.checked,
+    tree_nut: e.target.tree_nut.checked,
+    soy: e.target.soy.checked,
+    peanuts: e.target.peanuts.checked,
+    shellfish: e.target.shellfish.checked,
+    dairy: e.target.dairy.checked,
+    any_other: e.target.anyOther.value,
+    password: newPassword,
+    points: 0
+}
+
+if(e.target.currentPassword.value === userInfo.password && newPassword === passwordCheck && newPassword.length >= 8 && newPassword === passwordCheck ){
+    fetch(`http://localhost:9292/users/${userInfo.id}`,{
+        method: "PATCH",
+        headers:{"Content-type": "application/json"},
+        body: JSON.stringify(updateUser)
+    })
+    .then(r=>r.json())
+    .then(clearLoginInfo())
+    .then(handleLoginInfo(updateUser))
+    .then(alert('signing out to configure changes'))
+    .then(history.push(`/`))
     
+}
+if(e.target.currentPassword.value !== userInfo.password){alert("Your current password does not match our records")}
+if(newPassword !== passwordCheck){alert("The password you are trying to change does not match with your check password")}
+if(newPassword.length < 8){alert("Your new password must be longer than 8 characters")}
+
+
+
+
 
 }
 
+
+
+const allergies = []
+const dietaryPreference = []
+if(userInfo.gluten === true){allergies.push("gluten")}
+if(userInfo.fish === true){allergies.push("fish")}
+if(userInfo.tree_nut === true){allergies.push("tree_nut")}
+if(userInfo.soy === true){allergies.push("soy")}
+if(userInfo.peanuts === true){allergies.push("peanuts")}
+if(userInfo.shellfish === true){allergies.push("shellfish")}
+if(userInfo.dairy === true){allergies.push("lactose intolerant")}
+if(userInfo.vegitarian === true){dietaryPreference.push("vegetarian")}
+if(userInfo.pescetarian === true){dietaryPreference.push("pescetarian")}
 
 
     return(
@@ -34,59 +96,81 @@ function updateProfile(){
 
 
         <div>
+            <div>
+            <h1>Your profile</h1>
+            <label>name:</label>
+            <h3>{userInfo.name}</h3>
+            <label>email:</label>
+            <h3>{userInfo.email}</h3>
+            <label>points</label>
+            <h3>{userInfo.points}</h3>
+            <label>phone number</label>
+            <h3>{userInfo.phone_number}</h3>
+            <h2>Your allergies</h2>
+            {allergies.map(allergy => <h3>{allergy}</h3>)}
+            <h2>Your dietary preference</h2>
+            {dietaryPreference.map(preference => <h3>{preference}</h3>)}
+
+            <h2>Any other preference or allergy you want your chef to know.</h2>
+            <p>{userInfo.any_other}</p>
+            </div>
             <button onClick={deleteProfile}>delete profile</button>
-            <h2>update your profile</h2>
-              <form onSubmit={updateProfile}>
+            <h2 className="pointer" onClick={()=> setOpen(open=>(!open))}>update your profile</h2>
+              <form className={`${open ? "block" : "hidden"}`} onSubmit={updateProfile}>
                 <label>name</label>
-                <input type="text" placeholder="name" id="name"/>
+                <input type="text" placeholder="name" defaultValue={userInfo.name} id="name"/>
                 <br />
                 <label>email</label>
-                <input type="text" placeholder="email" id = "sign_up_email"/>
+                <input type="text" placeholder="email" defaultValue ={userInfo.email} id = "sign_up_email"/>
                 <br />
                 <label>phone number</label>
-                <input type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
+                <input type='tel' placeholder="xxx-xxx-xxxx" defaultValue={userInfo.phone_number} id = "phone"/>
                 <h2>Do you have any of the following allergies or food preferences?</h2>
                 <label>gluten</label>
-                <input type='checkbox' id="gluten" />
+                <input type='checkbox' defaultChecked = {userInfo.gluten ? true: false}  id="gluten" />
                 <br />
                 <label>vegetarian</label>
-                <input type='checkbox' id="vegetarian" />
+                <input type='checkbox' defaultChecked={userInfo.vegitarian ? true: false} id="vegetarian" />
                 <br />
                 <label>fish</label>
-                <input type='checkbox' id="fish" />
+                <input type='checkbox' defaultChecked = {userInfo.fish ? true: false} id="fish" />
                 <br />
                 <label>tree_nut</label>
-                <input type='checkbox' id="tree_nut" />
+                <input type='checkbox' defaultChecked = {userInfo.tree_nut ? true: false} id="tree_nut" />
                 <br />
                 <label>soy</label>
-                <input type='checkbox' id="soy" />
+                <input type='checkbox' defaultChecked = {userInfo.soy ? true: false} id="soy" />
                 <br />
                 <label>peanuts</label>
-                <input type='checkbox' id="peanuts" />
+                <input type='checkbox' defaultChecked = {userInfo.peanuts ? true: false} id="peanuts" />
                 <br />
                 <label>shellfish</label>
-                <input type='checkbox' id="shellfish" />
+                <input type='checkbox' defaultChecked = {userInfo.shellfish ? true: false} id="shellfish" />
                 <br />
                 <label>dairy</label>
-                <input type='checkbox' id="dairy" />
+                <input type='checkbox' defaultChecked = {userInfo.dairy ? true: false} id="dairy" />
                 <br />
                 <label>pescetarian</label>
-                <input type='checkbox' id="pescetarian" />
+                <input type='checkbox' defaultChecked = {userInfo.pescetarian ? true: false} id="pescetarian" />
 
                 <br />
 
                 <label>any other conditions</label>
-                <input type='text' placeholder="any other" id="anyOther" />
+                <input type='text' placeholder="any other" defaultValue={userInfo.any_other}id="anyOther" />
                 <br />
 
 
-                <label>password</label>
-                <input type='password' placeholder="password"  id="sign_up_password"/>
+                <label>change password</label>
+                <input type='password' placeholder="new password"  id="sign_up_password"/>
                 <br />
-                <label>confirm password</label>
+                <label>confirm changes too password</label>
                 <input type='password' placeholder="confirm" id="confirm"/>
                 <br />
+                <label>Enter your current password for any changes too take place</label>
+                <input type='password' placeholder="current password" id="currentPassword" />
+                <br />
                 <input type='submit' />
+
 
                 
             </form>
