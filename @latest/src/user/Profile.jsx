@@ -1,8 +1,17 @@
+import { useHistory } from "react-router-dom"
+
+function Profile({userInfo, setLogin}){
+const history = useHistory()
 
 
-function Profile({userInfo}){
 function deleteProfile(){
-    alert("are you sure you want to delete your profile. You will lose all of your points and rewards.")
+    if(confirm("are you sure you want to delete your profile. You will lose all of your points and rewards. We won't be able to track your allergies or dietary preferences. Once you delete a profile there will be no way to get it back.") == true){
+        fetch(`http://localhost:9292/users/${userInfo.id}`,{
+            method: "DELETE"
+        })
+        .then(setLogin(login =>('')))
+        .then(history.push(`/`))
+    }
 }
 
 function updateProfile(){
