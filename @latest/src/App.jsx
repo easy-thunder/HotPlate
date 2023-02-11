@@ -83,7 +83,7 @@ function handleLoginInfo(user){
       </Route>
 
       <Route exact path = "/sign_up">
-        <SignUp />
+        <SignUp handleLoginInfo={handleLoginInfo}/>
       </Route>
 
 

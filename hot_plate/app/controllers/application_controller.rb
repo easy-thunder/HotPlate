@@ -17,6 +17,20 @@ class ApplicationController < Sinatra::Base
     user.to_json
   end
 
+  post "/users" do
+
+    authorize = User.user_authorize(params[:email], params[:password])
+
+    if authorize == true
+      user = User.create(params)
+      user.to_json
+    elsif false 
+      alert('')
+    end
+  end
+
+
+  
 
 
   get "/users/:email/:password" do 

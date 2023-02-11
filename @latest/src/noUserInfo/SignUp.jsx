@@ -1,27 +1,50 @@
+import {v4 as uuidv4} from 'uuid'
+import { useHistory } from 'react-router-dom'
 
-
-function SignUp(){
+function SignUp({handleLoginInfo}){
+let myuuid = uuidv4()
+const history = useHistory()
 
 
 function signUp(e){
 e.preventDefault()
-newUser = 
+
+const newUser = 
     {
+    uuid: myuuid,
     name: e.target.name.value,
     email: e.target.sign_up_email.value,
     phone_number: e.target.phone.value,
     gluten:  e.target.gluten.checked,
-    vegetarian: e.target.vegetarian.checked,
+    vegitarian: e.target.vegetarian.checked,
     pescetarian: e.target.pescetarian.checked,
     tree_nut: e.target.tree_nut.checked,
     soy: e.target.soy.checked,
     peanuts: e.target.peanuts.checked,
     shellfish: e.target.shellfish.checked,
     dairy: e.target.dairy.checked,
-    anyOther: e.target.anyOther.value,
-    sign_up_password: e.target.sign_up_password.value,
-    confirm_password: e.target.confirm.value
+    any_other: e.target.anyOther.value,
+    password: e.target.sign_up_password.value,
+    points: 0
 }
+// ${newUser.email}/${newUser.sign_up_password}
+if(newUser.password === e.target.confirm.value && newUser.password.length >= 8){
+fetch(`http://localhost:9292/users
+`,{
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    body: JSON.stringify(newUser)
+})
+.then(r=>r.json())
+.then(handleLoginInfo(newUser),
+history.push(`/userHome/:${newUser.uuid}`)
+)
+
+
+.catch(alert("You need a stronger password or this email is already associated with this restaurant"))
+
+}
+else{alert("passwords Don't match or your password isn't long enough")}
 
 
 }
