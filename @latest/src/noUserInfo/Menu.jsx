@@ -3,8 +3,6 @@ import React from "react"
 
 
 function Menu({menuItem}){
-    console.log("hi")
-    console.log(menuItem.name)
     return(
     <div className="  ">
         <h3>{menuItem.name}</h3>
