@@ -23,16 +23,6 @@ function updateProfile(){
 
     return(
 
-
-
-
-
-
-
-
-
-
-
         <div>
             <button onClick={deleteProfile}>delete profile</button>
             <h2>update your profile</h2>
