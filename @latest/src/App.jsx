@@ -27,7 +27,10 @@ useEffect(()=>{
   .then(setMenuItems);
 },[])
 
-
+function clearLoginInfo(){
+  setLogin(login =>(''))
+  setUserInfo(userInfo=>({}))
+}
 
 
 
@@ -72,6 +75,8 @@ function handleLoginInfo(user){
         <Route exact path = {`/profile/${login}`}>
           <Profile userInfo={userInfo} 
           setLogin={setLogin}
+          handleLoginInfo = {handleLoginInfo}
+          clearLoginInfo = {clearLoginInfo}
           />
         </Route>
 
