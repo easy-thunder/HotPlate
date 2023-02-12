@@ -8,8 +8,13 @@ function UserHeader ({login}){
 return(
     <div>
         UserHeader
+
+        <NavLink to ={`/profile/${login}`} >
+            <button>Profile</button>
+        </NavLink>
+
         <NavLink to ={`/userHome/${login}`} >
-            <button>home</button>
+            <button>Home</button>
         </NavLink>
     </div>
 )

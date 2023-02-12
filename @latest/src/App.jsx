@@ -10,6 +10,7 @@ import SignUp from './noUserInfo/SignUp'
 
 import UserHeader from './user/UserHeader'
 import UserHome from './user/UserHome'
+import Profile from './user/Profile'
 
 
 function App() {
@@ -71,7 +72,9 @@ function handleLoginInfo(user){
         />
       </Route>
 
-
+        <Route exact path = {`/profile/${login}`}>
+          <Profile userInfo={userInfo} />
+        </Route>
 
 {/* no user info below */}
       <Route exact path= "/">
@@ -83,7 +86,7 @@ function handleLoginInfo(user){
       </Route>
 
       <Route exact path = "/sign_up">
-        <SignUp />
+        <SignUp handleLoginInfo={handleLoginInfo}/>
       </Route>
 
 

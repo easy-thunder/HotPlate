@@ -9,7 +9,10 @@ function AllMenu({menuItems}){
         {/* <Menu menuItems = {menuItems}/> */}
         {menuItems.map(menuItem => {
             return(
-            <Menu menuItem={menuItem}/>)
+            <Menu 
+            menuItem={menuItem}
+            key = {menuItem.id}
+            />)
         })}
 
         </div>
