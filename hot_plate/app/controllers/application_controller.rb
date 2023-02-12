@@ -48,6 +48,11 @@ class ApplicationController < Sinatra::Base
     user.to_json
   end
 
+  delete '/users/:id' do 
+    user = User.find(params[:id])
+    user.to_json
+  end
+
 
 
 

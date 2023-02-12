@@ -65,15 +65,14 @@ function handleLoginInfo(user){
         <UserHome 
         // login={login} 
         userInfo={userInfo}
-
-
           // onSignOut={onSignOut}
-
         />
       </Route>
 
         <Route exact path = {`/profile/${login}`}>
-          <Profile userInfo={userInfo} />
+          <Profile userInfo={userInfo} 
+          setLogin={setLogin}
+          />
         </Route>
 
 {/* no user info below */}
