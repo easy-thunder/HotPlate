@@ -55,4 +55,10 @@
   cursor: pointer;
 }
 
+.navMargin{
+margin: 0 3vw
+}
 
+.Itemwidth{
+  width: 200px;
+}

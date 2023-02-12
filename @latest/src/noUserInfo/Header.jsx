@@ -1,5 +1,8 @@
 import { NavLink, useHistory } from "react-router-dom"
 import { useState } from "react"
+import "../App.css"
+import {motion} from "framer-motion"
+import{fadeIn,staggerContainer} from '../variants';
 
 
 
@@ -35,31 +38,60 @@ function validateUser(e){
 
     return(
         <div> 
-<span>
+<motion.div  
+variants={staggerContainer} 
+initial="hidden" 
+whileInView={'show'}
+viewport={{ once:false, amount:0.1}}
+className='container mx-auto flex items-center text-center'
+>
     
-<button className = "" onClick = {()=> setOpen(open=>(!open))}>sign in</button>
+<motion.button
+variants={fadeIn('down','tween', 0.2, 1.6)}
+className="h2 capitalize text-white max-w-[400px]
+navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white hover:border-transparent
+ transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"onClick = {()=> setOpen(open=>(!open))}>sign in</motion.button>
 
 <NavLink to = '/sign_up' exact>
-<button>sign up</button>
+<motion.button 
+variants={fadeIn('down','tween', 0.2, 1.6)}
+className="
+h2 capitalize text-white max-w-[400px] navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white 
+hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">sign up</motion.button>
 </NavLink>
 
-
-
 <NavLink to= '/' exact>
-<button>home</button>
+<motion.button 
+variants={fadeIn('down','tween', 0.2, 1.6)}
+className="
+h2 capitalize text-white max-w-[400px]
+navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white 
+hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">home</motion.button>
 </NavLink>
 
 <NavLink to= '/all_menu' exact>
-<button>all menu</button>
+
+<motion.button
+variants={fadeIn('down','tween', 0.2, 1.6)}
+className="
+h2 capitalize text-white max-w-[400px]
+navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white hover:border-transparent 
+transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">all menu</motion.button>
 </NavLink>
-</span>
+
+
+</motion.div>
 <div>
-    <form onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
-        <label>email</label>
-        <input type='email' id = "sign_in_email" />
+    <form class="w-full max-w-lg"  onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
+        <label className="block text-gray-700 text-sm font-bold mb-2" >Email</label>
+        <input  
+         class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        type='email' id = "sign_in_email" />
         <br />
-        <label>password</label>
-        <input type="password" id="sign_in_password" />
+        <label class="block text-gray-700 text-sm font-bold mb-2" >Password</label>
+        <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        
+        type="password" id="sign_in_password" />
         <br />
         <input type='submit' />
     </form>
@@ -68,7 +100,7 @@ function validateUser(e){
 
 
         </div>
-    )
+    ) 
 }
 
 export default Header

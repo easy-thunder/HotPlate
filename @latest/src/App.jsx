@@ -24,7 +24,8 @@ const [userInfo, setUserInfo] = useState({})
 useEffect(()=>{
   fetch("http://localhost:9292/menu_items")
   .then(r => r.json())
-  .then(setMenuItems);
+  .then(setMenuItems)
+ .then(console.log(menuItems))
 },[])
 
 function clearLoginInfo(){

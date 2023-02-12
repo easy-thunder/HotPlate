@@ -62,7 +62,8 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="email" id = "sign_up_email"/>
                 <br />
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >phone number</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight
+                 focus:outline-none focus:shadow-outline" type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
                 <h2>Do you have any of the following allergies or food preferences?</h2>
                 <label>gluten</label>
                 <input type='checkbox' id="gluten" />
