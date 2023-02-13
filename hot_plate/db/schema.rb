@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_13_143951) do
+ActiveRecord::Schema.define(version: 2023_02_13_203643) do
 
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2023_02_13_143951) do
     t.integer "menu_item_id"
     t.float "price_total"
     t.integer "check_number"
+    t.string "table_number"
   end
 
 end

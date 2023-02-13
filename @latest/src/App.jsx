@@ -11,6 +11,8 @@ import SignUp from './noUserInfo/SignUp'
 import UserHeader from './user/UserHeader'
 import UserHome from './user/UserHome'
 import Profile from './user/Profile'
+import Table from './user/Table'
+
 
 
 function App() {
@@ -18,6 +20,9 @@ function App() {
 const [menuItems, setMenuItems] = useState([])
 const [login, setLogin] = useState('')
 const [userInfo, setUserInfo] = useState({})
+const [cart, setCart] = useState([])
+
+
 
 
 
@@ -28,12 +33,20 @@ useEffect(()=>{
   // .then(console.log(menuItems))
 },[])
 
+function clearCart(){
+  setCart(()=>{[]})
+
+}
+
 function clearLoginInfo(){
   setLogin(()=>{''})
   setUserInfo(()=>{{}})
 }
 
-
+function addToCart(menu_item){
+setCart([...cart ,menu_item ]) 
+}
+console.log(cart)
 
 
 function handleLoginInfo(user){
@@ -64,6 +77,7 @@ function checkUserInfo(){
       {login ? <UserHeader
       login={login}
       clearLoginInfo = {clearLoginInfo}
+      cart = {cart}
       /> 
       :
       <Header 
@@ -77,6 +91,8 @@ function checkUserInfo(){
         <UserHome 
         userInfo={userInfo}
         menuItems = {menuItems}
+        addToCart = {addToCart}
+
         />
       </Route>
 
@@ -86,6 +102,14 @@ function checkUserInfo(){
           handleLoginInfo = {handleLoginInfo}
           clearLoginInfo = {clearLoginInfo}
           // setUserInfo = {setUserInfo}
+          login = {login}
+          />
+        </Route>
+
+
+        <Route exact path = {`/table/${login}`}>
+          <Table cart={cart}
+          clearCart = {clearCart}
           login = {login}
           />
         </Route>

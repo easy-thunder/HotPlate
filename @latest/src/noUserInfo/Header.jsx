@@ -3,7 +3,7 @@ import { useState } from "react"
 import "../App.css"
 import {motion} from "framer-motion"
 import{fadeIn,staggerContainer} from '../variants';
-import { MenuItem } from "@material-tailwind/react";
+// import { MenuItem } from "@material-tailwind/react";
 
 
 
@@ -12,18 +12,18 @@ function Header ({handleLoginInfo}){
     const [open, setOpen] = useState(false)
     const history = useHistory()
 
- function addToCart(e){
+//  function addToCart(e){
 
-   const addToCart = e.target.menu_items_id.value 
+//    const addToCart = e.target.menu_items_id.value 
    
-   fetch(`http://localhost:9292/users/${menu_items_id}`,{
-   method:"PATCH",
-   headers:"Content-type: application/json",
-   body: JSON.stringify(addToCart)
-   })
-   .then(r=>r.json())
-   .then(console.log(addToCart))
-}
+//    fetch(`http://localhost:9292/users/${menu_items_id}`,{
+//    method:"PATCH",
+//    headers:"Content-type: application/json",
+//    body: JSON.stringify(addToCart)
+//    })
+//    .then(r=>r.json())
+//    .then(console.log(addToCart))
+// }
 
 
 function validateUser(e){
@@ -103,7 +103,9 @@ transition ease-in duration-200 transform hover:-translate-y-1 active:translate-
 
 </motion.div>
 <div>
-    <form className="w-full max-w-lg"  onSubmit={validateUser} class={`${open ? "block" : "hidden"}`}>
+    <form 
+    // className="w-full max-w-lg"  
+    onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
         <label className="block text-gray-700 text-sm font-bold mb-2" >Email</label>
         <input  
         className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

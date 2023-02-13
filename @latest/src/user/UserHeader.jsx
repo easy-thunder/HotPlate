@@ -2,7 +2,7 @@ import { NavLink, useHistory } from "react-router-dom"
 
 
 
-function UserHeader ({login, clearLoginInfo}){
+function UserHeader ({login, clearLoginInfo, cart}){
     const history = useHistory()
 
 function signOut(){
@@ -22,6 +22,9 @@ return(
         <NavLink to ={`/userHome/${login}`} >
             <button>Home</button>
         </NavLink>
+        {<NavLink to ={`/table/${login}`}>
+            <button>cart</button>
+        </NavLink>}
     </div>
 )
 }

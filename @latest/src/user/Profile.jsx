@@ -26,7 +26,7 @@ else{newPassword = e.target.sign_up_password.value, passwordCheck = e.target.con
 
 
 
-console.log(userInfo)
+
 
     const updateUser = 
     {

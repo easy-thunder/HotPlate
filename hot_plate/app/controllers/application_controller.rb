@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
   end
 
 get "/visits/:price_total" do 
-  visits = Visit.find(params[:price_total)
+  visits = Visit.find(params[:price_total])
   visits.to_json
 end
 

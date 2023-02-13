@@ -6,10 +6,16 @@ import MenuImg3 from '../assets/img/menu/3.png'
 import MenuImg4 from '../assets/img/menu/4.png'
 import{fadeIn,staggerContainer} from '../variants';
 
-function Menu({menuItem, index}){
+
+function Menu({menuItem, index , addToCart}){
  const imageList = [MenuImg1, MenuImg2, MenuImg3, MenuImg4]
 
+ function handleCart(){
+   addToCart(menuItem)
+ }
+
     return(
+<>
     <motion.div
     initial="hidden" 
     whileInView={'show'}
@@ -31,15 +37,20 @@ function Menu({menuItem, index}){
          variants={fadeIn('down','tween', 0.5, 1.6)}
         className='.container.mx-auto text-black/70 capitalize mb-8 font-Josefin Sans Itemwidth '> {menuItem.description} </motion.h3>
 
+
+
         <motion.button 
         whileHover={ {scale:1.1} }
         whileTap={ {scale:0.9} }
         className='btn capitalize w-full lg:max-w-[240px] buttonFont '
+        onClick={handleCart}
         >add too order</motion.button>
 
     </motion.div>
 
+    </>
     )
+    
 }
 
 export default Menu
