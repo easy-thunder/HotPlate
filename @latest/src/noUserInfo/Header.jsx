@@ -90,8 +90,8 @@ transition ease-in duration-200 transform hover:-translate-y-1 active:translate-
         <br />
         <label class="block text-gray-700 text-sm font-bold mb-2" >Password</label>
         <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        
         type="password" id="sign_in_password" />
+
         <br />
         <input type='submit' />
     </form>
