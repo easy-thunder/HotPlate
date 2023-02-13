@@ -28,7 +28,7 @@ const newUser =
     password: e.target.sign_up_password.value,
     points: 0
 }
-// ${newUser.email}/${newUser.sign_up_password}
+// console.log(newUser.email)
 if(newUser.password === e.target.confirm.value && newUser.password.length >= 8){
 fetch(`http://localhost:9292/users
 `,{
@@ -52,17 +52,24 @@ else{alert("passwords Don't match or your password isn't long enough")}
 
 
     return(
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <form class="w-full max-w-lg" onSubmit={signUp}>
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        <div className="flex flex-wrap -mx-3 mb-6">
+            <form className="w-full max-w-lg" onSubmit={signUp}>
+                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                // for="name"
+                >
+                Name</label>
+                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                  type="text" placeholder="name" id="name" />
                 <br />
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">email</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="email" id = "sign_up_email"/>
+                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                // for="username"
+                >email</label>
+                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="email" id = "sign_up_email"/>
                 <br />
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >phone number</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight
+                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                // for="username"
+                 >phone number</label>
+                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight
                  focus:outline-none focus:shadow-outline" type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
                 <h2>Do you have any of the following allergies or food preferences?</h2>
                 <label>gluten</label>
@@ -94,16 +101,22 @@ else{alert("passwords Don't match or your password isn't long enough")}
 
                 <br />
 
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >any other conditions</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='text' placeholder="any other" id="anyOther" />
+                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                // for="username"
+                 >any other conditions</label>
+                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='text' placeholder="any other" id="anyOther" />
                 <br />
 
 
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >password</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="password"  id="sign_up_password"/>
+                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                // for="username"
+                 >password</label>
+                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="password"  id="sign_up_password"/>
                 <br />
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >confirm password</label>
-                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="confirm" id="confirm"/>
+                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                // for="username"
+                 >confirm password</label>
+                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="confirm" id="confirm"/>
                 <br />
                 <input 
                 whileHover={ {scale:1.1} }

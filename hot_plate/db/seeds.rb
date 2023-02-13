@@ -18,29 +18,29 @@ end
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, raw: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, all_times: true, raw: true)
 end
 
 
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, shellfish: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, all_times: true, shellfish: true)
 end
 
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, peanuts: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, lunch: true, peanuts: true)
 end
 
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, gluten: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, breakfast: true, gluten: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, fish: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, dinner: true, fish: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, dairy: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, lunch: true, dairy: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, desert: true, brunch: true, need_how_cooked: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, need_how_cooked: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, happy_hour: true)
@@ -49,22 +49,22 @@ end
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, monday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, tuesday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, breakfast: true, tuesday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, wednesday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, dinner: true, wednesday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, thursday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, lunch: true, thursday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, friday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, breakfast: true, friday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, saturday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, dinner: true, saturday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, sunday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, lunch: true, sunday: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, custom: true)
@@ -81,8 +81,6 @@ end
 User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true, uuid:12345)
 
 
-2. times do 
-    User.create(name: Faker::Name.name, email:Faker::Internet.email, password: Faker::Internet.password)
-end
+
 
 puts "✅ Done seeding!"

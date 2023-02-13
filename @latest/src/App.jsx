@@ -25,12 +25,12 @@ useEffect(()=>{
   fetch("http://localhost:9292/menu_items")
   .then(r => r.json())
   .then(setMenuItems)
- .then(console.log(menuItems))
+  // .then(console.log(menuItems))
 },[])
 
 function clearLoginInfo(){
-  setLogin(login =>(''))
-  setUserInfo(userInfo=>({}))
+  setLogin(()=>{''})
+  setUserInfo(()=>{{}})
 }
 
 
@@ -47,6 +47,12 @@ function handleLoginInfo(user){
 }
 
 
+function checkUserInfo(){
+  console.log(login)
+  console.log(userInfo)
+}
+
+
 
 
 // console.log("test")
@@ -54,8 +60,10 @@ function handleLoginInfo(user){
 
   return (
     <div className="App">
+      <button onClick={checkUserInfo}>check user info</button>
       {login ? <UserHeader
       login={login}
+      clearLoginInfo = {clearLoginInfo}
       /> 
       :
       <Header 
@@ -67,9 +75,8 @@ function handleLoginInfo(user){
 {/* user info below */}
     <Route exact path = {`/userHome/${login}`}>
         <UserHome 
-        // login={login} 
         userInfo={userInfo}
-          // onSignOut={onSignOut}
+        menuItems = {menuItems}
         />
       </Route>
 
@@ -78,6 +85,8 @@ function handleLoginInfo(user){
           setLogin={setLogin}
           handleLoginInfo = {handleLoginInfo}
           clearLoginInfo = {clearLoginInfo}
+          // setUserInfo = {setUserInfo}
+          login = {login}
           />
         </Route>
 
