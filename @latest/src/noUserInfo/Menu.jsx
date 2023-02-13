@@ -5,7 +5,7 @@ import MenuImg2 from '../assets/img/menu/2.png'
 import MenuImg3 from '../assets/img/menu/3.png'
 import MenuImg4 from '../assets/img/menu/4.png'
 
-function Menu({menuItem, key ,index}){
+function Menu({menuItem, index}){
  const imageList = [MenuImg1, MenuImg2, MenuImg3, MenuImg4]
 
     return(

@@ -37,6 +37,7 @@ function validateUser(e){
 
 
     return(
+        
         <div> 
 <motion.div  
 variants={staggerContainer} 
@@ -82,14 +83,14 @@ transition ease-in duration-200 transform hover:-translate-y-1 active:translate-
 
 </motion.div>
 <div>
-    <form class="w-full max-w-lg"  onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
+    <form className="w-full max-w-lg"  onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
         <label className="block text-gray-700 text-sm font-bold mb-2" >Email</label>
         <input  
-         class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+         className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type='email' id = "sign_in_email" />
         <br />
-        <label class="block text-gray-700 text-sm font-bold mb-2" >Password</label>
-        <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        <label className="block text-gray-700 text-sm font-bold mb-2" >Password</label>
+        <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="password" id="sign_in_password" />
 
         <br />
