@@ -6,7 +6,7 @@ import  Menu  from '../noUserInfo/Menu'
 
 
 
-function UserHome ({userInfo, menuItems}){
+function UserHome ({userInfo, menuItems , addToCart}){
     const foodPreference = []
     const filteredMenuItems =[]
     const allItems = []
@@ -20,8 +20,8 @@ menuItems.map(menuItem => {
         else{allItems.push(menuItem)}
 })
 
-console.log(foodPreference)
-console.log(allItems)
+// console.log(foodPreference)
+// console.log(allItems)
         if(foodPreference !== []){
         foodPreference.map(menuItem =>{ 
             
@@ -66,12 +66,13 @@ console.log(allItems)
 // //        
 //         else{filteredMenuItems.push(menuItem)}
 
-console.log(filteredMenuItems)
+// console.log(filteredMenuItems)
 
 
 
 return(
     <div>
+        <button></button>
         Current menu
     
     {/* <MainPhoto /> */}
@@ -79,7 +80,7 @@ return(
     {filteredMenuItems.map(menuItem => {
     if(menuItem.appetizer === true){
         
-        return( <Menu menuItem={menuItem} key={menuItem.id}/>)
+        return( <Menu menuItem={menuItem} key={menuItem.id}addToCart = {addToCart}/>)
     }
     })}
 <br />
@@ -87,7 +88,7 @@ return(
     {filteredMenuItems.map(menuItem => {
     if(menuItem.entree === true){
         
-        return( <Menu menuItem={menuItem} key={menuItem.id}/>)
+        return( <Menu menuItem={menuItem} key={menuItem.id} addToCart = {addToCart}/>)
     }
     })}
     <br />
@@ -95,7 +96,7 @@ return(
     {filteredMenuItems.map(menuItem => {
     if(menuItem.dessert === true){
         
-        return( <Menu menuItem={menuItem} key={menuItem.id}/>)
+        return( <Menu menuItem={menuItem} key={menuItem.id} addToCart = {addToCart}/>)
     }
     })}
 
