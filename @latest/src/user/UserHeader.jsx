@@ -1,15 +1,21 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 
 
-function UserHeader ({login}){
 
+function UserHeader ({login, clearLoginInfo}){
+    const history = useHistory()
 
+function signOut(){
+    if(confirm("Are you sure you want to sign out?")===true){clearLoginInfo()
+    history.push('/')
+    }
+}
 
 return(
     <div>
-        UserHeader
-
-        <NavLink to ={`/profile/${login}`} >
+        
+        <button onClick={signOut}>Sign Out</button>
+        <NavLink to ={`/profile/${login}`}>
             <button>Profile</button>
         </NavLink>
 

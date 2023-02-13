@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom"
 import { useState } from "react"
 
-function Profile({userInfo, setLogin, handleLoginInfo, clearLoginInfo}){
+function Profile({userInfo, setLogin,  clearLoginInfo, setUserInfo, handleLoginInfo, login}){
 const history = useHistory()
 const [open, setOpen] = useState(false)
 
@@ -11,7 +11,7 @@ function deleteProfile(){
         fetch(`http://localhost:9292/users/${userInfo.id}`,{
             method: "DELETE"
         })
-        .then(setLogin(login =>('')))
+        .then(clearLoginInfo())
         .then(history.push(`/`))
         .catch(Error)
     }
@@ -26,9 +26,12 @@ else{newPassword = e.target.sign_up_password.value, passwordCheck = e.target.con
 
 
 
+console.log(userInfo)
+
     const updateUser = 
     {
     uuid: userInfo.uuid,
+    id:userInfo.id,
     name: e.target.name.value,
     email: e.target.sign_up_email.value,
     phone_number: e.target.phone.value,
@@ -36,6 +39,7 @@ else{newPassword = e.target.sign_up_password.value, passwordCheck = e.target.con
     vegitarian: e.target.vegetarian.checked,
     pescetarian: e.target.pescetarian.checked,
     tree_nut: e.target.tree_nut.checked,
+    fish: e.target.fish.checked,
     soy: e.target.soy.checked,
     peanuts: e.target.peanuts.checked,
     shellfish: e.target.shellfish.checked,
@@ -45,18 +49,15 @@ else{newPassword = e.target.sign_up_password.value, passwordCheck = e.target.con
     points: 0
 }
 
+
 if(e.target.currentPassword.value === userInfo.password && newPassword === passwordCheck && newPassword.length >= 8 && newPassword === passwordCheck ){
     fetch(`http://localhost:9292/users/${userInfo.id}`,{
         method: "PATCH",
         headers:{"Content-type": "application/json"},
         body: JSON.stringify(updateUser)
     })
-    .then(r=>r.json())
     .then(clearLoginInfo())
-    .then(handleLoginInfo(updateUser))
-    .then(alert('signing out to configure changes'))
-    .then(history.push(`/`))
-    
+    .then(handleLoginInfo(updateUser))    
 }
 if(e.target.currentPassword.value !== userInfo.password){alert("Your current password does not match our records")}
 if(newPassword !== passwordCheck){alert("The password you are trying to change does not match with your check password")}
