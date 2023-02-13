@@ -40,7 +40,7 @@ end
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, dairy: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, desert: true, brunch: true, need_how_cooked: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, need_how_cooked: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, happy_hour: true)

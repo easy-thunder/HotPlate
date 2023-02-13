@@ -89,7 +89,7 @@ a {
   .btn {
     @apply h-14 rounded-full bg-accent px-[42px] text-white text-base font-secondary font-semibold tracking-[0.02em] outline-none hover:bg-accent-hover transition-all duration-300 flex justify-center items-center;
   }
-  .input {
+  /* .input {
     @apply h-[56px] w-[316px] outline-none pl-[30px] rounded-full border-2 border-gray-200 font-secondary font-semibold text-base text-dark  placeholder:text-dark;
-  }
+  } */
 }

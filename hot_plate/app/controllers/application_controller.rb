@@ -12,6 +12,12 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+get "/visits/:price_total" do 
+  visits = Visit.find(params[:price_total)
+  visits.to_json
+end
+
+
   get "/users/:id" do 
     user = User.find(params[:id])
     user.to_json
@@ -38,7 +44,11 @@ end
 
   end
 
-
+patch 'visits/:menu_items_id' do
+   visits = Visit.find(params[:menu_items_id])
+   visits.update(visits).sum
+   visits.to_json
+end
   
 
 
@@ -62,7 +72,10 @@ end
     user.destroy
   end
 
-
+get "/visits/:price_total" do 
+visits = Visit.visit.sum(params[:price_total])
+visits.to_json
+end
 
 
 

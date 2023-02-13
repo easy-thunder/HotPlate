@@ -3,6 +3,7 @@ import { useState } from "react"
 import "../App.css"
 import {motion} from "framer-motion"
 import{fadeIn,staggerContainer} from '../variants';
+import { MenuItem } from "@material-tailwind/react";
 
 
 
@@ -10,6 +11,20 @@ import{fadeIn,staggerContainer} from '../variants';
 function Header ({handleLoginInfo}){
     const [open, setOpen] = useState(false)
     const history = useHistory()
+
+ function addToCart(e){
+
+   const addToCart = e.target.menu_items_id.value 
+   
+   fetch(`http://localhost:9292/users/${menu_items_id}`,{
+   method:"PATCH",
+   headers:"Content-type: application/json",
+   body: JSON.stringify(addToCart)
+   })
+   .then(r=>r.json())
+   .then(console.log(addToCart))
+}
+
 
 function validateUser(e){
     e.preventDefault()
@@ -44,12 +59,14 @@ variants={staggerContainer}
 initial="hidden" 
 whileInView={'show'}
 viewport={{ once:false, amount:0.1}}
-className='container mx-auto flex items-center text-center'
+className='.container .mx-auto flex items-center text-center'
 >
     
 <motion.button
 variants={fadeIn('down','tween', 0.2, 1.6)}
-className="h2 capitalize text-white max-w-[400px]
+className=" 
+.container .mx-auto 
+h2 capitalize text-white max-w-[400px]
 navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white hover:border-transparent
  transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0"onClick = {()=> setOpen(open=>(!open))}>sign in</motion.button>
 
@@ -57,6 +74,7 @@ navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-
 <motion.button 
 variants={fadeIn('down','tween', 0.2, 1.6)}
 className="
+.container .mx-auto
 h2 capitalize text-white max-w-[400px] navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white 
 hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">sign up</motion.button>
 </NavLink>
@@ -65,6 +83,7 @@ hover:border-transparent transition ease-in duration-200 transform hover:-transl
 <motion.button 
 variants={fadeIn('down','tween', 0.2, 1.6)}
 className="
+.container .mx-auto
 h2 capitalize text-white max-w-[400px]
 navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white 
 hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">home</motion.button>
@@ -75,6 +94,7 @@ hover:border-transparent transition ease-in duration-200 transform hover:-transl
 <motion.button
 variants={fadeIn('down','tween', 0.2, 1.6)}
 className="
+.container .mx-auto
 h2 capitalize text-white max-w-[400px]
 navMargin py-2 px-4 bg-transparent text-red-600 font-semibold border border-red-600 rounded hover:bg-red-600 hover:text-white hover:border-transparent 
 transition ease-in duration-200 transform hover:-translate-y-1 active:translate-y-0">all menu</motion.button>
@@ -83,7 +103,7 @@ transition ease-in duration-200 transform hover:-translate-y-1 active:translate-
 
 </motion.div>
 <div>
-    <form className="w-full max-w-lg"  onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
+    <form className="w-full max-w-lg"  onSubmit={validateUser} class={`${open ? "block" : "hidden"}`}>
         <label className="block text-gray-700 text-sm font-bold mb-2" >Email</label>
         <input  
          className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

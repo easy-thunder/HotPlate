@@ -62,3 +62,7 @@ margin: 0 3vw
 .Itemwidth{
   width: 200px;
 }
+
+.buttonFont{
+  font-style:inherit;
+}

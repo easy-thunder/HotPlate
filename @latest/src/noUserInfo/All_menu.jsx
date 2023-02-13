@@ -2,7 +2,8 @@ import Menu from "./Menu"
 function AllMenu({menuItems}){ 
     let i = -1 
     return(
-        <div>
+          <div className='relative z-10 top-72 lg:top-52'  > 
+            <div>
             what we offer
                     {/* <MainPhoto /> */}
         {/* <Menu menuItems = {menuItems}/> */}
@@ -17,7 +18,7 @@ function AllMenu({menuItems}){
         })}
 
 
-
+          </div>
         </div>
     )
 }

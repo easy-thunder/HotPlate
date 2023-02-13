@@ -108,7 +108,8 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 <input 
                 whileHover={ {scale:1.1} }
                 whileTap={ {scale:0.9} }
-                className='btn capitalize w-full lg:max-w-[240px] flex-center' type='submit'  />
+                // className="btn btn-block"
+                 type='submit'  />
 
                 
             </form>
