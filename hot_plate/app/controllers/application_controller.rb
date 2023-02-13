@@ -24,10 +24,9 @@ class ApplicationController < Sinatra::Base
     if authorize == true
       user = User.create(params)
       user.to_json
-    elsif false 
-      alert('')
-    end
+
   end
+end
 
   patch '/users/:id' do 
 

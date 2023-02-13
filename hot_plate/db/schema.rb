@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_11_091903) do
+ActiveRecord::Schema.define(version: 2023_02_13_143951) do
 
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2023_02_11_091903) do
     t.string "email"
     t.string "password"
     t.datetime "last_visit"
-    t.integer "uuid"
+    t.string "uuid"
     t.integer "points"
     t.string "phone_number"
     t.datetime "created_at", precision: 6, null: false
