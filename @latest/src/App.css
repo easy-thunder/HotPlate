@@ -48,7 +48,17 @@
   display: block;
 }
 .border{
-  border: solid 3px red;
+  border: solid 3px;
 }
 
+.pointer{
+  cursor: pointer;
+}
 
+.navMargin{
+margin: 0 3vw
+}
+
+.Itemwidth{
+  width: 200px;
+}

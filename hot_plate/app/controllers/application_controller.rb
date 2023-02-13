@@ -12,12 +12,40 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+  get "/users/:id" do 
+    user = User.find(params[:id])
+    user.to_json
+  end
+
+  post "/users" do
+
+    authorize = User.user_authorize(params[:email], params[:password])
+
+    if authorize == true
+      user = User.create(params)
+      user.to_json
+
+  end
+end
+
+  patch '/users/:id' do 
 
 
+      user = User.find(params[:id])
+    user.update(params)
+    user.to_json
 
-  get "/user/:id" do 
-    if email_valid
-    User.find(params[:uuid])
+
+  end
+
+
+  
+
+
+  get "/users/:email/:password" do 
+   user = User.user_match(params[:email], params[:password])
+   user.to_json
+    # User.find(params[:email])
   end
 
 
@@ -29,6 +57,15 @@ class ApplicationController < Sinatra::Base
     user.to_json
   end
 
+  delete '/users/:id' do 
+    user = User.find(params[:id])
+    user.destroy
+  end
+
+
+
+
+
 
 
 
@@ -38,6 +75,7 @@ class ApplicationController < Sinatra::Base
 
 
 end
-  
 
-end
+
+
+

@@ -9,10 +9,10 @@ price = rand(5..100)
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, dinner: true, vegitarian: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, breakfast: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, breakfast: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, lunch: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, lunch: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true)
@@ -27,20 +27,20 @@ end
 end
 
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, peanuts: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, peanuts: true)
 end
 
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, gluten: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, gluten: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, fish: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, dairy: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, dairy: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, need_how_cooked: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, desert: true, brunch: true, need_how_cooked: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, happy_hour: true)
@@ -52,7 +52,7 @@ end
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, tuesday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, wednesday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, wednesday: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, thursday: true)
@@ -64,10 +64,10 @@ end
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, saturday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, sunday: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, dessert: true, brunch: true, sunday: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, brunch: true, custom: true)
+    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, brunch: true, custom: true)
 end
 5. times do 
     MenuItem.create(name: Faker::Coffee.blend_name, price: rand(5..100), description: Faker::Coffee.notes, drink:true, all_times: true)
@@ -81,7 +81,7 @@ end
 User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true, uuid:12345)
 
 
-20. times do 
+2. times do 
     User.create(name: Faker::Name.name, email:Faker::Internet.email, password: Faker::Internet.password)
 end
 

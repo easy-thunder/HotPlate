@@ -1,22 +1,69 @@
+import {v4 as uuidv4} from 'uuid'
+import { useHistory } from 'react-router-dom'
+import{motion} from 'framer-motion';
+
+function SignUp({handleLoginInfo}){
+let myuuid = uuidv4()
+const history = useHistory()
 
 
+function signUp(e){
+e.preventDefault()
 
-function SignUp(){
+const newUser = 
+    {
+    uuid: myuuid,
+    name: e.target.name.value,
+    email: e.target.sign_up_email.value,
+    phone_number: e.target.phone.value,
+    gluten:  e.target.gluten.checked,
+    vegitarian: e.target.vegetarian.checked,
+    pescetarian: e.target.pescetarian.checked,
+    tree_nut: e.target.tree_nut.checked,
+    soy: e.target.soy.checked,
+    peanuts: e.target.peanuts.checked,
+    shellfish: e.target.shellfish.checked,
+    dairy: e.target.dairy.checked,
+    any_other: e.target.anyOther.value,
+    password: e.target.sign_up_password.value,
+    points: 0
+}
+// ${newUser.email}/${newUser.sign_up_password}
+if(newUser.password === e.target.confirm.value && newUser.password.length >= 8){
+fetch(`http://localhost:9292/users
+`,{
+    method: "POST",
+    headers:{"Content-Type": "application/json"},
+    body: JSON.stringify(newUser)
+})
+.then(r=>r.json())
+.then(handleLoginInfo(newUser),
+history.push(`/userHome/:${newUser.uuid}`)
+)
 
+
+.catch(alert("You need a stronger password or this email is already associated with this restaurant"))
+
+}
+else{alert("passwords Don't match or your password isn't long enough")}
+
+
+}
 
 
     return(
-        <div className="border">
-            <form>
-                
-                <label>name</label>
-                <input type="text" placeholder="name" id="name"/>
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <form class="w-full max-w-lg" onSubmit={signUp}>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                 type="text" placeholder="name" id="name" />
                 <br />
-                <label>email</label>
-                <input type="text" placeholder="email" id = "sign_up_email"/>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username">email</label>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="email" id = "sign_up_email"/>
                 <br />
-                <label>phone number</label>
-                <input type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >phone number</label>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight
+                 focus:outline-none focus:shadow-outline" type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
                 <h2>Do you have any of the following allergies or food preferences?</h2>
                 <label>gluten</label>
                 <input type='checkbox' id="gluten" />
@@ -47,18 +94,21 @@ function SignUp(){
 
                 <br />
 
-                <label>any other conditions</label>
-                <input type='text' placeholder="any other" id="anyOther" />
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >any other conditions</label>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='text' placeholder="any other" id="anyOther" />
                 <br />
 
 
-                <label>password</label>
-                <input type='password' placeholder="password"  id="sign_up_password"/>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >password</label>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="password"  id="sign_up_password"/>
                 <br />
-                <label>confirm password</label>
-                <input type='password' placeholder="confirm" id="confirm"/>
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" >confirm password</label>
+                <input class="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="confirm" id="confirm"/>
                 <br />
-                <input type='submit' />
+                <input 
+                whileHover={ {scale:1.1} }
+                whileTap={ {scale:0.9} }
+                className='btn capitalize w-full lg:max-w-[240px] flex-center' type='submit'  />
 
                 
             </form>
