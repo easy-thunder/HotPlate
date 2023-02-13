@@ -9,39 +9,54 @@ import  Menu  from '../noUserInfo/Menu'
 function UserHome ({userInfo, menuItems}){
     const foodPreference = []
     const filteredMenuItems =[]
+    const allItems = []
+
 menuItems.map(menuItem => {
         if((userInfo.pescetarian===true && menuItem.pescetarian === true) || 
         (userInfo.vegitarian === true && menuItem.vegitarian === true)
         ) {
             foodPreference.push(menuItem)
         }
+        else{allItems.push(menuItem)}
 })
 
-// if (foodPreference){
-//     foodPreference.map(menuItem => {
-//         if ((userInfo.shellfish===true && menuItem.shellfish === true)
-//             || (userInfo.gluten===true && menuItem.gluten === true) || 
-//            (userInfo.fish===true && menuItem.fish === true) ||
-//            (userInfo.dairy===true && menuItem.dairy === true) ||
-//            (userInfo.tree_nut===true && menuItem.tree_nut === true) ||
-//            (userInfo.soy===true && menuItem.soy === true) ||
-//            (userInfo.peanuts===true && menuItem.peanuts === true))
-//     })
-// }
-      
-    
-        
-
-        foodPreference.map(menuItem => 
-            {
-                if ((userInfo.shellfish===true && menuItem.shellfish === true)
-            || (userInfo.gluten===true && menuItem.gluten === true) || 
+console.log(foodPreference)
+console.log(allItems)
+        if(foodPreference !== []){
+        foodPreference.map(menuItem =>{ 
+            
+                if( 
+            (userInfo.shellfish===true && menuItem.shellfish === true) || 
+            (userInfo.gluten===true && menuItem.gluten === true) || 
            (userInfo.fish===true && menuItem.fish === true) ||
            (userInfo.dairy===true && menuItem.dairy === true) ||
            (userInfo.tree_nut===true && menuItem.tree_nut === true) ||
            (userInfo.soy===true && menuItem.soy === true) ||
            (userInfo.peanuts===true && menuItem.peanuts === true)
-        } )}
+           ){
+            null
+           }
+           else{filteredMenuItems.push(menuItem)}
+        }
+           )}
+
+           if(foodPreference.length === 0){
+            allItems.map(menuItem => {
+                if(
+                    (userInfo.shellfish===true && menuItem.shellfish === true) || 
+                    (userInfo.gluten===true && menuItem.gluten === true) || 
+                   (userInfo.fish===true && menuItem.fish === true) ||
+                   (userInfo.dairy===true && menuItem.dairy === true) ||
+                   (userInfo.tree_nut===true && menuItem.tree_nut === true) ||
+                   (userInfo.soy===true && menuItem.soy === true) ||
+                   (userInfo.peanuts===true && menuItem.peanuts === true)
+                ){null}
+                else{filteredMenuItems.push(menuItem)}
+            })
+           }
+
+
+        
 // foodPreference.map
 
         
