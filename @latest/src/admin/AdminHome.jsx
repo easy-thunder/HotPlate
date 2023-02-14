@@ -2,7 +2,7 @@ import { NavLink} from "react-router-dom"
 
 function AdminHome(){
     function addMenuItem(){
-        
+        fetch()
     }
 return(
     <div>

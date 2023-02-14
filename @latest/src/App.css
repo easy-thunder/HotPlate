@@ -67,3 +67,44 @@ margin: 0 3vw
   margin: 50px;
 }
 
+<<<<<<< HEAD
+=======
+.console{
+  width: 151rem;
+  height: 151rem;
+  border: solid 2px;
+  border-color: rgb(45, 86, 147);
+}
+
+.chair{
+  border: solid 1px;
+  border-color: black;
+  height: 2em;
+  width: 2em;
+  border-radius: 100%;
+  float: right;
+  flex-wrap: wrap;
+  background-color: aqua;
+
+}
+
+
+
+.grid{
+  height: 2em; 
+  width: 2em;
+  border: dotted 2px;
+  float: right;
+  flex-wrap: wrap;
+}
+
+.square{
+  height: 2em; 
+  width: 2em;
+  background-color: red;
+  float: right;
+  flex-wrap: wrap;
+}
+
+
+>>>>>>> refs/remotes/origin/main

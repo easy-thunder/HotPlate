@@ -20,6 +20,7 @@ email_valid = self.all.find do |user|
     end
 
 end
+
 if email_valid == nil
 true
 else false
@@ -42,4 +43,3 @@ end
 
 
 
- 
