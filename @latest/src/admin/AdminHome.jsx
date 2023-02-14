@@ -1,7 +1,7 @@
 
 function AdminHome(){
     function addMenuItem(){
-        
+        fetch()
     }
 return(
     <div>
