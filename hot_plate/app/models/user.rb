@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 has_many :visits 
-has_many :menu_itmes, through: :visits
+has_many :menu_items, through: :visits
 
 def self.user_match(email, password)
 

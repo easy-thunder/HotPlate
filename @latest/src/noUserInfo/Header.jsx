@@ -31,18 +31,27 @@ function validateUser(e){
 
     const email = e.target.sign_in_email.value
     const password = e.target.sign_in_password.value
-
+    const admin = e.target.admin.checked
+    if (admin === false){
     fetch(`http://localhost:9292/users/${email}/${password}`)
     
     .then(r=>r.json())
-    // .then(user =>console.log(user.uuid))
     .then(user => {handleLoginInfo(user),
         history.push(`/userHome/:${user.uuid}`)
     })
-    // .then(user => {
-    //     console.log(user)
-        
-    // })
+}
+/////////////////////////////////////////////////
+// This fetch request is built out for you. I want you to look at the other application controllers, see how they verified the users and do the same with admin. You will have to build an admin table first to verify anything. You can make the admin password and email whatever you want in seed data. The only two things needed in the admin is their email and password for validation.
+/////////////////////////////////////////////////////
+// if (admin === true){
+//     fetch(`http://localhost:9292/admin/${email}/${password}`)
+//     .then(r=>r.json())
+//     .then(history.push(`/AdminHome/jqw9repj493j984334uidsjp9934`))
+// }
+
+
+
+
 }
 
 
@@ -115,6 +124,9 @@ transition ease-in duration-200 transform hover:-translate-y-1 active:translate-
         <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="password" id="sign_in_password" />
 
+        <br />
+        <label>Are you an administrator?</label>
+        <input type="checkbox" id="admin"/>
         <br />
         <input type='submit' />
     </form>

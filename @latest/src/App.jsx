@@ -12,6 +12,7 @@ import UserHeader from './user/UserHeader'
 import UserHome from './user/UserHome'
 import Profile from './user/Profile'
 import Table from './user/Table'
+import AdminHome from './admin/AdminHome'
 
 
 
@@ -111,6 +112,7 @@ function checkUserInfo(){
           <Table cart={cart}
           clearCart = {clearCart}
           login = {login}
+          userInfo = {userInfo}
           />
         </Route>
 
@@ -128,8 +130,10 @@ function checkUserInfo(){
       </Route>
 
 
-
-
+      {/* admin */}
+        <Route exact path = "/AdminHome/jqw9repj493j984334uidsjp9934">
+          <AdminHome />
+        </Route>
 
 
     </Switch>
