@@ -11,7 +11,7 @@ else false
 end
 end
 end
-``
+
 def self.user_authorize(email, password)
 email_valid = self.all.find do |user| 
     if user.email == email || user.password == password
@@ -20,6 +20,7 @@ email_valid = self.all.find do |user|
     end
 
 end
+
 if email_valid == nil
 true
 else false
@@ -42,4 +43,3 @@ end
 
 
 
- 
