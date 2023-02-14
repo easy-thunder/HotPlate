@@ -54,7 +54,7 @@ else{alert("passwords Don't match or your password isn't long enough")}
     return(
         <div className="flex flex-wrap -mx-3 mb-6">
             <form className="w-full max-w-lg" onSubmit={signUp}>
-                <label className="block text-gray-700 text-sm font-bold mb-2" 
+                <label className="block text-white-700 text-sm font-bold mb-2" 
                 // for="name"
                 >
                 Name</label>
