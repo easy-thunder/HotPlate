@@ -58,19 +58,19 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 // for="name"
                 >
                 Name</label>
-                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                <input className="input input-bordered w-full max-w-xs"
                  type="text" placeholder="name" id="name" />
                 <br />
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
                 >email</label>
-                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="email" id = "sign_up_email"/>
+                <input className="input input-bordered w-full max-w-xs" />
                 <br />
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
                  >phone number</label>
-                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight
-                 focus:outline-none focus:shadow-outline" type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
+                <input className="input input-bordered w-full max-w-xs"
+                 type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
                 <h2>Do you have any of the following allergies or food preferences?</h2>
                 <label>gluten</label>
                 <input type='checkbox' id="gluten" />
@@ -104,24 +104,24 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
                  >any other conditions</label>
-                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='text' placeholder="any other" id="anyOther" />
+                <input className="input input-bordered w-full max-w-xs" type='text' placeholder="any other" id="anyOther" />
                 <br />
 
 
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
                  >password</label>
-                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="password"  id="sign_up_password"/>
+                <input className="input input-bordered w-full max-w-xs" type='password' placeholder="password"  id="sign_up_password"/>
                 <br />
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
                  >confirm password</label>
-                <input className="shadow appearance-none border rounded w-fullpy-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type='password' placeholder="confirm" id="confirm"/>
+                <input className="input input-bordered w-full max-w-xs" type='password' placeholder="confirm" id="confirm"/>
                 <br />
                 <input 
                 whileHover={ {scale:1.1} }
                 whileTap={ {scale:0.9} }
-                // className="btn btn-block"
+                className="btn glass Itemwidth HeaderCenter"
                  type='submit'  />
 
                 

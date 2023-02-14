@@ -3,6 +3,7 @@ import './App.css'
 import "./index.css"
 import { Switch, Route} from "react-router-dom"
 import CreateTable from './admin/createTable'
+import ViewVisits from './admin/viewVisits'
 
 import Home from "./noUserInfo/Home"
 import Header from "./noUserInfo/Header"
@@ -23,8 +24,7 @@ const [menuItems, setMenuItems] = useState([])
 const [login, setLogin] = useState('')
 const [userInfo, setUserInfo] = useState({})
 const [cart, setCart] = useState([])
-
-
+const [visit, setVisits] = useState([])
 
 
 
@@ -32,7 +32,7 @@ useEffect(()=>{
   fetch("http://localhost:9292/menu_items")
   .then(r => r.json())
   .then(setMenuItems)
-  // .then(console.log(menuItems))
+ .then(console.log(menuItems))
 },[])
 
 function clearCart(){
@@ -130,7 +130,6 @@ function checkUserInfo(){
         <SignUp handleLoginInfo={handleLoginInfo}/>
       </Route>
 
-
       {/* admin */}
         <Route exact path = "/AdminHome/jqw9repj493j984334uidsjp9934">
           <AdminHome />
@@ -143,11 +142,14 @@ function checkUserInfo(){
           <CreateTable/>
         </Route>
 
-
-
-    </Switch>
-
-
+        {/* ViewVisits*/}
+        <Route exact path = "/AdminHome/jqw9repj493j984334uidsjp9934/viewVisits">
+          <ViewVisits
+           visit={visit}
+          setVisits = {setVisits}
+          />
+          </Route>
+          </Switch>
     
     </div>
   )

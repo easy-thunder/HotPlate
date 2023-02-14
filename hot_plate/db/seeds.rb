@@ -5,11 +5,11 @@ Visit.destroy_all
 
 price = rand(5..100)
 
-5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, dinner: true, vegitarian: true)
+ m1 =  5.times do 
+   m1 = MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, entree: true, dinner: true, vegitarian: true)
 end
 5.times do 
-    MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, breakfast: true)
+   m2 = MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, breakfast: true)
 end
 5.times do 
     MenuItem.create(name: Faker::Food.dish, price: rand(5..100), description: Faker::Food.description, appetizer: true, lunch: true)
@@ -78,7 +78,11 @@ end
 end
 
 
-User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true, uuid:12345)
+u1 = User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true, uuid:12345)
+
+5. times do
+Visit.create(user_id: u1, menu_item_id: m1, price_total: rand(5..100), check_number: rand(5..100), table_number: rand(5..100),)
+end
 
 
 
