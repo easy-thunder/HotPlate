@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import "./index.css"
 import { Switch, Route} from "react-router-dom"
+import CreateTable from './admin/createTable'
 
 import Home from "./noUserInfo/Home"
 import Header from "./noUserInfo/Header"
@@ -134,6 +135,14 @@ function checkUserInfo(){
         <Route exact path = "/AdminHome/jqw9repj493j984334uidsjp9934">
           <AdminHome />
         </Route>
+
+
+        {/* createTable */}
+
+        <Route exact path = "/AdminHome/jqw9repj493j984334uidsjp9934/createTable">
+          <CreateTable/>
+        </Route>
+
 
 
     </Switch>

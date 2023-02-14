@@ -1,3 +1,4 @@
+import { NavLink} from "react-router-dom"
 
 function AdminHome(){
     function addMenuItem(){
@@ -5,6 +6,16 @@ function AdminHome(){
     }
 return(
     <div>
+
+
+        <NavLink to='/AdminHome/jqw9repj493j984334uidsjp9934/createTable'exact>
+        <button>Create New Table</button>
+        </NavLink> 
+<br></br>
+        <NavLink to= '/AdminHome/jqw9repj493j984334uidsjp9934'exact>
+        <button>Create New Dish</button>
+        </NavLink>
+
 <form className="w-full max-w-lg" onSubmit={addMenuItem}>
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="name"
