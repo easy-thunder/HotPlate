@@ -111,6 +111,7 @@ function checkUserInfo(){
           <Table cart={cart}
           clearCart = {clearCart}
           login = {login}
+          userInfo = {userInfo}
           />
         </Route>
 

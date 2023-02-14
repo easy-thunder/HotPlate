@@ -34,6 +34,13 @@ end
   end
 end
 
+
+post '/visits' do 
+  visit = Visit.create(params)
+  visit.to_json
+end
+
+
   patch '/users/:id' do 
 
 
@@ -43,6 +50,13 @@ end
 
 
   end
+
+patch '/users/:id/orders' do 
+user = User.find(params[:id])
+user.menu_items << params
+end
+
+
 
 patch 'visits/:menu_items_id' do
    visits = Visit.find(params[:menu_items_id])
