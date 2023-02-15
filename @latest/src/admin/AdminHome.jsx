@@ -1,7 +1,13 @@
 import { NavLink} from "react-router-dom"
+import {useHistory} from 'react-router-dom'
+
 
 function AdminHome(){
+
+const history = useHistory()
+
     function addMenuItem(){
+        e.preve
         fetch()
     }
 return(

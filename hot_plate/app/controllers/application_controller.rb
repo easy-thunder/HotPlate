@@ -70,9 +70,6 @@ end
   end
 
 
-
-
-
   post '/users' do 
     user = User.find(params[:id])
     user.to_json
@@ -83,6 +80,12 @@ end
     user.destroy
   end
 
+
+  post '/menu_items"' do
+    menu_items = menuItem.find(params[:name])
+    menu_item.to_json
+  end
+  
 
 end
 
