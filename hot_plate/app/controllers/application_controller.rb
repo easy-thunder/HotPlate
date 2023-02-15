@@ -17,6 +17,10 @@ get "/visits/:price_total" do
   visits.to_json
 end
 
+get '/visits' do
+  visits = Visit.all
+  visits.to_json
+end
 
   get "/users/:id" do 
     user = User.find(params[:id])
@@ -42,9 +46,7 @@ end
 
 
   patch '/users/:id' do 
-
-
-      user = User.find(params[:id])
+    user = User.find(params[:id])
     user.update(params)
     user.to_json
 
@@ -56,15 +58,10 @@ user = User.find(params[:id])
 user.menu_items << params
 end
 
-
-
-patch 'visits/:menu_items_id' do
-   visits = Visit.find(params[:menu_items_id])
-   visits.update(visits).sum
-   visits.to_json
+patch '/visits/:price_total' do
+  visits = Visit.find(params[:price_total])
+  visits.check_number + params
 end
-  
-
 
   get "/users/:email/:password" do 
    user = User.user_match(params[:email], params[:password])
@@ -85,20 +82,6 @@ end
     user = User.find(params[:id])
     user.destroy
   end
-
-get "/visits/:price_total" do 
-visits = Visit.visit.sum(params[:price_total])
-visits.to_json
-end
-
-
-
-
-
-
-
-
-
 
 
 end

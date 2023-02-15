@@ -63,8 +63,8 @@ margin: 0 3vw
   width: 200px;
 }
 
-.buttonFont{
-  font-style:inherit;
+.HeaderCenter{
+  margin: 50px;
 }
 
 .console{

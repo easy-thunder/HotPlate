@@ -6,8 +6,11 @@ function AdminHome(){
     }
 return(
     <div>
+<NavLink to='/AdminHome/jqw9repj493j984334uidsjp9934/ViewVisits'>
+    <button> View Visits </button>
+</NavLink>
 
-
+<br></br>
         <NavLink to='/AdminHome/jqw9repj493j984334uidsjp9934/createTable'exact>
         <button>Create New Table</button>
         </NavLink> 

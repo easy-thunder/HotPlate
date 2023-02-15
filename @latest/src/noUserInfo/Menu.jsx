@@ -42,7 +42,7 @@ function Menu({menuItem, index , addToCart}){
         <motion.button 
         whileHover={ {scale:1.1} }
         whileTap={ {scale:0.9} }
-        className='btn capitalize w-full lg:max-w-[240px] buttonFont '
+        className = 'button '
         onClick={handleCart}
         >add too order</motion.button>
 
