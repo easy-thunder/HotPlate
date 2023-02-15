@@ -1,36 +1,51 @@
 import { wrap } from "framer-motion"
+import ContextMenu from "react-jsx-context-menu"
 
 
 
 
-function RoundTable({radius}){
+
+function RoundTable({radius, number, text, deleteTable}){
+
+    function removeTable(){
+       if (confirm('Are you sure you want to delete this table')===true){
+        deleteTable()
+       }
+    }
+
+
+    const y = Math.floor((number/67)*2)
+    const x = number%67*2;
+    console.log(`${x}x`)
+    console.log(`${y}y`)
     return(
+        
         <div>
         <div
         style={{
-            position: "relative",
-            // top: "50%",
-            // left: "50%",
-            
-            // margin: "-25px 0 0 -25px",
-            // display: "flex",
-            // alignItems: "center",
-            
-            // justifyContent: "center",
-            // marginRight: "1000em",
-            height: radius+"em",
-            width: radius+"em",
+            position: "absolute",
+
+            marginTop: `${y}em `,
+            // top: `${y}px`,
+            // paddingLeft: `${x}px`,
+            left: `${x}em`,
+            height: radius*2+"em",
+            width: radius*2+"em",
             border: "solid 1px",
             borderRadius: "100%",
-            float: "right",
+            float: "left",
             flexWrap: wrap,
             backgroundColor: "yellow",
+            center: Text,
             // zIndex: "7",
             
             
         }}
+        onClick={removeTable}
+        className='pointer'
         >
-
+            <p>{number}</p>
+            <p>{text}</p>
         </div>
             </div>
     )

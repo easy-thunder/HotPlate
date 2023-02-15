@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_13_233444) do
+ActiveRecord::Schema.define(version: 2023_02_15_161404) do
+
+  create_table "Restaurant", force: :cascade do |t|
+    t.string "name"
+    t.string "passKey"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chairs", force: :cascade do |t|
+    t.integer "chair_number"
+    t.integer "grid_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
@@ -50,6 +64,22 @@ ActiveRecord::Schema.define(version: 2023_02_13_233444) do
     t.boolean "dessert"
     t.boolean "all_times"
     t.boolean "pescetarian"
+  end
+
+  create_table "round_tables", force: :cascade do |t|
+    t.string "section"
+    t.integer "table_number"
+    t.integer "grid_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "square_tables", force: :cascade do |t|
+    t.string "section"
+    t.integer "table_number"
+    t.integer "grid_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
