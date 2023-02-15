@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import { useState } from "react"
 import ContextMenu from "react-jsx-context-menu"
 import RoundTable from "./RoundTable"
 
@@ -8,6 +8,11 @@ import RoundTable from "./RoundTable"
 
 function Grid({number}){
 
+    function deleteTable(){
+        setGrid(()=>"grid")
+        setRound(()=>false)
+        setText(()=>'')
+    }
 
 
 
@@ -31,12 +36,18 @@ function Grid({number}){
         }
 
         if(e.target.roundTable.checked === true){
-            setRound(()=>'roundTable')
+            setRound(()=>true)
             setRadius(()=>e.target.radius.value)
+            setText(()=>e.target.tableSection.value + e.target.tableNumber)
+        }
+        if(e.target.grid.checked === true){
+            setRound(()=>false)
+            setGrid(()=>"grid")
+            setText(()=>'')
         }
         // console.log(e.target.chair.checked)
         // console.log(e.target.chairNumber.value)
-
+        console.log(number)
 
     }
 
@@ -69,6 +80,9 @@ function Grid({number}){
                 <label>Square Table</label>
                 <input type='checkbox' id="squareTable" />
                 <br />
+                <label>Grid</label>
+                <input type='checkbox' id="grid" />
+                <br />
                 <label>Round Table</label>
                 <input type='checkbox' id="roundTable" />
                 <br />
@@ -100,9 +114,11 @@ function Grid({number}){
           </div>
         }
       >
-        {round ? <RoundTable radius={radius} number={number} /> : <div  
+        {round ? <RoundTable radius={radius} number={number} 
+        text={text}
+        deleteTable={deleteTable}
+        /> : <div  
     className={`pointer ${grid}`} 
-    // onClick={()=>setTable(table => (!table))}
     >
     <p>{text}</p>
     <p>{number}</p>

@@ -55,6 +55,8 @@
   cursor: pointer;
 }
 
+
+
 .navMargin{
 margin: 0 3vw
 }
@@ -94,7 +96,7 @@ margin: 0 3vw
   border: dotted 2px;
   float: left;
   flex-wrap: wrap;
-  /* position: static; */
+  cursor: cell;
   
 }
 
