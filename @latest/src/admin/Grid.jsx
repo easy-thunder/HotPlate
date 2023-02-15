@@ -6,7 +6,7 @@ import RoundTable from "./RoundTable"
 
 
 
-function Grid(){
+function Grid({number}){
 
 
 
@@ -100,12 +100,12 @@ function Grid(){
           </div>
         }
       >
-        {round ? <RoundTable radius={radius} /> : <div  
+        {round ? <RoundTable radius={radius} number={number} /> : <div  
     className={`pointer ${grid}`} 
     // onClick={()=>setTable(table => (!table))}
     >
     <p>{text}</p>
-        
+    <p>{number}</p>
     </div>}
       </ContextMenu>
     

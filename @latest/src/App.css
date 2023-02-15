@@ -80,7 +80,7 @@ margin: 0 3vw
   height: 2em;
   width: 2em;
   border-radius: 100%;
-  float: right;
+  float: left;
   flex-wrap: wrap;
   background-color: aqua;
 
@@ -92,15 +92,17 @@ margin: 0 3vw
   height: 2em; 
   width: 2em;
   border: dotted 2px;
-  float: right;
+  float: left;
   flex-wrap: wrap;
+  /* position: static; */
+  
 }
 
 .square{
   height: 2em; 
   width: 2em;
   background-color: red;
-  float: right;
+  float: left;
   flex-wrap: wrap;
 }
 
