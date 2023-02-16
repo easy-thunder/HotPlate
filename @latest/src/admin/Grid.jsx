@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ContextMenu from "react-jsx-context-menu"
 import RoundTable from "./RoundTable"
 
@@ -6,7 +6,7 @@ import RoundTable from "./RoundTable"
 
 
 
-function Grid({number}){
+function Grid({number, restaurantInfo}){
 
     function deleteTable(){
         setGrid(()=>"grid")
@@ -18,42 +18,87 @@ function Grid({number}){
 
 
 
+
     const [grid, setGrid] = useState('grid')
     const [text, setText] = useState('')
     const [round, setRound] = useState(false)
     const [radius, setRadius] = useState(2)
+    
 
     function handleGrid(e){
         e.preventDefault()
         if(e.target.chair.checked === true
              ){
-                setGrid(()=>'chair')
-                setText(()=>e.target.chairNumber.value)
+                console.log(restaurantInfo.id)
+                const newChair ={
+                    chair_number: e.target.chairNumber.value,
+                    grid_number: number,
+                    restaurant_id: restaurantInfo.id
+                }
+                fetch(`http://localhost:9292/restaurants/chairs`,{
+                    method: "POST",
+                    headers:{"Content-Type": "application/json"},
+                    body: JSON.stringify(newChair)
+                })
+                .then(setGrid(()=>'chair'))
+                .then(setText(()=>e.target.chairNumber.value))
         }
-        if(e.target.squareTable.checked === true){
-            setGrid(()=>'square')
-            setText(()=>e.target.tableSection.value + e.target.tableNumber.value)
+        else if(e.target.squareTable.checked === true){
+            const newSquareTable={
+            // section: e.target.tableSection.value,
+            table_number: e.target.tableNumber.value,
+            grid_number: number,
+            restaurant_id: restaurantInfo.id
+            }
+            fetch(`http://localhost:9292/restaurants/square_tables`,{
+                    method: "POST",
+                    headers:{"Content-Type": "application/json"},
+                    body: JSON.stringify(newSquareTable)
+                })
+            .then(setGrid(()=>'square'))
+            .then(setText(()=>e.target.tableSection.value + e.target.tableNumber.value))
         }
 
-        if(e.target.roundTable.checked === true){
-            setRound(()=>true)
-            setRadius(()=>e.target.radius.value)
-            setText(()=>e.target.tableSection.value + e.target.tableNumber)
+        else if(e.target.roundTable.checked === true){
+            const newRoundTable = {
+                section: e.target.tableSection.value,
+                table_number: e.target.tableNumber.value,
+                grid_number: number,
+                radius: e.target.radius.value,
+                restaurant_id: restaurantInfo.id
+            }
+
+
+            fetch(`http://localhost:9292/restaurants/round_tables`,{
+                    method: "POST",
+                    headers:{"Content-Type": "application/json"},
+                    body: JSON.stringify(newRoundTable)
+                })
+            .then(setRound(()=>true))
+            .then(setRadius(()=>e.target.radius.value))
+            .then(setText(()=>e.target.tableSection.value + e.target.tableNumber))
         }
-        if(e.target.grid.checked === true){
+        else if(e.target.grid.checked === true){
+            fetch(`http://localhost:9292/restaurants/${number}`,{
+            method: "DELETE"
+            })
             setRound(()=>false)
             setGrid(()=>"grid")
             setText(()=>'')
         }
-        // console.log(e.target.chair.checked)
-        // console.log(e.target.chairNumber.value)
-        console.log(number)
+        else{alert('you need to mark a table type or chair')}
+
 
     }
 
 
-    
-
+    // chairArray.map((chairGrid) => {
+    //     if(chairGrid === number){
+    //         setGrid(()=>'chair')
+    //         .then(setText(()=>e.target.chairNumber.value))
+    //     }
+    //     // console.log(chairGrid)
+    // })
 
 
     return (
@@ -70,10 +115,7 @@ function Grid({number}){
               
             }}
           >
-            {/* <button onClick={()=>setGrid('square')}>Square</button>
-            <button onClick={()=>setGrid('chair')}>chair</button> */}
-            
-
+            <p>{restaurantInfo.name}</p>
             <form 
             onSubmit={handleGrid}
             >
@@ -115,7 +157,7 @@ function Grid({number}){
         }
       >
         {round ? <RoundTable radius={radius} number={number} 
-        text={text}
+        next={text}
         deleteTable={deleteTable}
         /> : <div  
     className={`pointer ${grid}`} 
