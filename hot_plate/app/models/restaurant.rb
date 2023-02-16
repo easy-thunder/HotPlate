@@ -28,18 +28,19 @@ class Restaurant < ActiveRecord::Base
             end
             end
 
-        def self.find_item_to_delete(grid_number)
-            self.all.chairs.find do |chair|
+        def self.find_item_to_delete(grid_number, id)
+            restaurant = self.find(id)
+            restaurant.chairs.find do |chair|
                 if chair.grid_number == grid_number
                     chair.destroy
                 end
             end
-            self.all.round_tables.find do |round_table|
+            restaurant.round_tables.find do |round_table|
                 if round_table.grid_number == grid_number 
                     round_table.destroy 
                 end
             end
-            self.all.square_tables.find do |square_table|
+            restaurant.square_tables.find do |square_table|
                 if square_table.grid_number == grid_number
                     square_table.destroy
                 end

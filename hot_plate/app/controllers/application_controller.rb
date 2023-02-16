@@ -426,8 +426,11 @@ end
 
 
 
-    delete '/restaurants/:grid_numbers' do 
-      Restaurant.find_item_to_delete(params[:grid_number ])
+    delete '/restaurants/:grid_numbers/:id' do 
+    
+
+
+      Restaurant.find_item_to_delete(params[:grid_number ], params[:id])
     end
 
     get '/restaurants/:pass_key' do 

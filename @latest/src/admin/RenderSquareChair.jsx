@@ -10,6 +10,8 @@ function RenderSquareChair({chair}){
 const y = Math.floor((chair.grid_number/67)*2);
 const x = chair.grid_number%67*2;
 
+function userHere(){
+}
 
 
 return(
@@ -31,7 +33,7 @@ return(
             
             
         }}
-        // onClick={removeTable}
+        // onClick={handleDeleteTable}
         className='pointer'
         >
             <p>{chair.chair_number}</p>

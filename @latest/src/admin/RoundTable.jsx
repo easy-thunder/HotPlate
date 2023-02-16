@@ -1,16 +1,18 @@
 import { wrap } from "framer-motion"
+import { useState } from "react";
+import { red } from "tailwindcss/colors";
 
 
 
 
 
-function RoundTable({radius, number,  deleteTable}){
+function RoundTable({radius, number}){
 
-    function removeTable(){
-       if (confirm('Are you sure you want to delete this table')===true){
-        deleteTable()
-       }
-    }
+
+    const [user, setUser]=useState(false)
+function userHere(){
+setUser(()=>!user)
+}
 
 
     const y = Math.floor((number/67)*2)
@@ -34,13 +36,13 @@ function RoundTable({radius, number,  deleteTable}){
             borderRadius: "100%",
             float: "left",
             flexWrap: wrap,
-            backgroundColor: "yellow",
+            backgroundColor: user ? "red" : "yellow",
             center: Text,
             // zIndex: "7",
             
             
         }}
-        onClick={removeTable}
+        onClick={userHere}
         className='pointer'
         >
             <p>{number}</p>

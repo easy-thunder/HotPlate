@@ -18,6 +18,22 @@ const [grid, setGrid] = useState('grid')
     const [round, setRound] = useState(false)
     const [radius, setRadius] = useState(2)
 
+
+
+
+
+
+    function deleteTable(number){
+        fetch(`http://localhost:9292/restaurants/${number}/${restaurantInfo.id}`,{
+            method: "DELETE"
+            })
+            setRound(()=>false)
+            setGrid(()=>"grid")
+            setText(()=>'')
+            setRadius(()=>2)
+        }
+    
+
     function handleGrid(e){
         e.preventDefault()
         if(e.target.chair.checked === true
@@ -195,13 +211,17 @@ function check(){
             <div className={`console ${hidden ? "hidden" : "block"}`}>
             {grids}
 
-            {chairArray.map(chair => <RenderSquareChair chair={chair}/>)}
+            {chairArray.map(chair => <RenderSquareChair chair={chair}
+            deleteTable={deleteTable}
+            />)}
 
 
 
-            {squareTableArray.map(squareTable => <RenderSquareTable squareTable={squareTable}/>)}
+            {squareTableArray.map(squareTable => <RenderSquareTable squareTable={squareTable}
+            deleteTable={deleteTable}
+            />)}
 
-            {roundTableArray.map(roundTable => <RenderRoundTable roundTable={roundTable}/>)}
+            {roundTableArray.map(roundTable => <RenderRoundTable roundTable={roundTable} deleteTable={deleteTable} />)}
             </div>
         </div>
     )

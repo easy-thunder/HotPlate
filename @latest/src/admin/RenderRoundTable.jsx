@@ -1,4 +1,5 @@
 import { wrap } from "framer-motion"
+import { useState } from "react"
 
 
 
@@ -12,6 +13,11 @@ function RenderRoundTable({roundTable}){
     //    }
     // }
 
+    const [user, setUser]=useState(false)
+    function userHere(){
+    setUser(()=>!user)
+    }
+
 
     const y = Math.floor((roundTable.grid_number/67)*2)
     const x = roundTable.grid_number%67*2;
@@ -24,8 +30,7 @@ function RenderRoundTable({roundTable}){
             position: "absolute",
 
             marginTop: `${y}em `,
-            // top: `${y}px`,
-            // paddingLeft: `${x}px`,
+
             left: `${x}em`,
             height: roundTable.radius*2+"em",
             width: roundTable.radius*2+"em",
@@ -33,13 +38,13 @@ function RenderRoundTable({roundTable}){
             borderRadius: "100%",
             float: "left",
             flexWrap: wrap,
-            backgroundColor: "yellow",
+            backgroundColor: user ? "red" : "yellow",
             center: Text,
             // zIndex: "7",
             
             
         }}
-        // onClick={removeTable}
+        onClick={userHere}
         className='pointer'
         >
             <p>{roundTable.section}</p>

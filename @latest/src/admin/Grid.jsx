@@ -6,7 +6,7 @@ import RoundTable from "./RoundTable"
 
 
 
-function Grid({number, restaurantInfo, chairArray}){
+function Grid({number, restaurantInfo}){
 
     function deleteTable(){
         setGrid(()=>"grid")
@@ -79,7 +79,7 @@ function Grid({number, restaurantInfo, chairArray}){
             .then(setText(()=>e.target.tableSection.value + e.target.tableNumber))
         }
         else if(e.target.grid.checked === true){
-            fetch(`http://localhost:9292/restaurants/round_tables/${number}`,{
+            fetch(`http://localhost:9292/restaurants/${number}`,{
             method: "DELETE"
             })
             setRound(()=>false)
