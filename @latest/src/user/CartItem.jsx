@@ -31,7 +31,7 @@ function CartItem ({item}){
 
         <motion.h3 
          variants={fadeIn('down','tween', 0.5, 1.6)}
-        className='.container.mx-auto text-black/70 capitalize mb-8 font-Josefin Sans Itemwidth '> {item.description} </motion.h3>
+        className='.container.mx-auto text-white/70 capitalize mb-8 font-Josefin Sans Itemwidth '> {item.description} </motion.h3>
 
 
 

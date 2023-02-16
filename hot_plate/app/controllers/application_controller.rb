@@ -42,6 +42,7 @@ end
 
 post '/visits' do 
   visit = Visit.create(params)
+  visit.menu_items << params[:menu_items]
   visit.to_json
 end
 
@@ -333,9 +334,28 @@ end
 
 
 
+  # patch '/users/:id' do 
+  #   user = User.find(params[:id])
+  #   user.update(params)
+  #   user.to_json
 
 
+  # end
+  # patch '/users/:id/orders' do 
+  #   user = User.find(params[:id])
+  #   user.menu_items << params
+  #   end
 
+patch '/visits/:uuid' do
+  visit = Visit.find do |visit|
+    if visit.uuid == params[:uuid]
+      visit.menu_items << params
+      visit.menu_items.to_json
+    end
+  end
+  # visit.menu_items << params
+  # visit.to_json
+end
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_15_232028) do
+ActiveRecord::Schema.define(version: 2023_02_16_164806) do
 
   create_table "chairs", force: :cascade do |t|
     t.integer "chair_number"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2023_02_15_232028) do
     t.float "price_total"
     t.integer "check_number"
     t.string "table_number"
+    t.string "uuid"
   end
 
 end
