@@ -28,6 +28,9 @@ function Table({cart, clearCart, login, userInfo}){
             body: JSON.stringify(newVisit)
         }
         )
+        .then(clearCart())
+        .then(alert('Your order is coming to you. Redirecting too home page'))
+        .then(history.push(`/userHome/${userInfo.uuid}`))
        
         
     
