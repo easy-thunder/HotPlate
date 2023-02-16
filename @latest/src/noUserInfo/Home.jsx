@@ -7,7 +7,6 @@ function Home({menuItems}){
     return(
         <div>
             Current menu
-        
         {/* <MainPhoto /> */}
         <h3>Appetizer</h3>
         {menuItems.map(menuItem => {

@@ -59,6 +59,7 @@ a {
 @layer base {
   body {
     @apply bg-body font-secondary text-lg text-grey font-medium;
+    background-image: url(./assets/img/menu/bg.png)
   }
   .h1,
   .h2,

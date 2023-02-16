@@ -1,3 +1,4 @@
+
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -81,12 +82,11 @@ end
   end
 
 
-  post '/menu_items"' do
-    menu_items = menuItem.find(params[:name])
-    menu_item.to_json
+  post '/menu_items' do
+    menu_items = MenuItem.create(params)
+    menu_items.to_json
   end
   
-
 end
 
 

@@ -57,7 +57,6 @@ function Table({cart, clearCart, login, userInfo}){
         }
     {cart ? <h3>{priceTotal}</h3> : <h3>0</h3>}
     {<button onClick={handleCheckout}>CheckOut</button>}
-
         </div>
     )
 }

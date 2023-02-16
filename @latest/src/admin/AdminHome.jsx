@@ -2,14 +2,61 @@ import { NavLink} from "react-router-dom"
 import {useHistory} from 'react-router-dom'
 
 
-function AdminHome(){
+function AdminHome({handleAddMenuItem}){
 
-const history = useHistory()
+// const history = useHistory()
 
-    function addMenuItem(){
-        e.preve
-        fetch()
-    }
+    function addMenuItem(e){
+        e.preventDefault()
+        
+        const newMenuItem = {
+            name: e.target.name.value,
+            description: e.target.description.value,
+            price: e.target.price.value,
+            gluten:  e.target.gluten.checked,
+            vegitarian: e.target.vegetarian.checked,
+            fish: e.target.fish.checked,
+            tree_nut: e.target.tree_nut.checked,
+            soy: e.target.soy.checked,
+            peanuts: e.target.peanuts.checked,
+            shellfish: e.target.shellfish.checked,
+            dairy: e.target.dairy.checked,
+            pescetarian: e.target.pescetarian.checked,
+            heat_level: e.target.value,
+            raw: e.target.raw.checked,
+            need_how_cooked: e.target.need_how_cooked.checked, 
+            breakfast: e.target.breakfast.checked,
+            lunch: e.target.lunch.checked,
+            brunch: e.target.brunch.checked,
+            dinner: e.target.dinner.checked,
+            happy_hour: e.target.happy_hour.checked,
+            all_times: e.target.all_times.checked,
+            custom: e.target.custom.checked,
+            monday: e.target.monday.checked,
+            tuesday: e.target.tuesday.checked,
+            wednesday: e.target.wednesday.checked,
+            thursday: e.target.thursday.checked,
+            friday: e.target.friday.checked,
+            saturday: e.target.saturday.checked,
+            sunday: e.target.sunday.checked,
+            entree: e.target.entree.checked,
+            appetizer: e.target.appetizer.checked,
+            dessert: e.target.dessert.checked,
+            drink: e.target.drink.checked,
+            alcohol: e.target.alcohol.checked,
+        }
+
+        fetch(`http://localhost:9292/menu_items`,{
+
+        method:"POST",
+        headers:{"Content-Type": "application/json"},
+        body: JSON.stringify(newMenuItem)
+        })
+        .then(r => r.json())
+        .then(handleAddMenuItem(newMenuItem))
+    
+}
+
 return(
     <div>
 <NavLink to='/AdminHome/jqw9repj493j984334uidsjp9934/ViewVisits'>
@@ -145,6 +192,7 @@ return(
                 whileHover={ {scale:1.1} }
                 whileTap={ {scale:0.9} }
                 // className="btn btn-block"
+                onChange={addMenuItem}
                  type='submit'  />
 
                 

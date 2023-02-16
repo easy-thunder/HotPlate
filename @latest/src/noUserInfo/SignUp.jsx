@@ -10,6 +10,9 @@ const history = useHistory()
 function signUp(e){
 e.preventDefault()
 
+
+console.log('history')
+
 const newUser = 
     {
     uuid: myuuid,
@@ -28,7 +31,7 @@ const newUser =
     password: e.target.sign_up_password.value,
     points: 0
 }
-// console.log(newUser.email)
+
 if(newUser.password === e.target.confirm.value && newUser.password.length >= 8){
 fetch(`http://localhost:9292/users
 `,{
@@ -53,7 +56,7 @@ else{alert("passwords Don't match or your password isn't long enough")}
 
     return(
         <div className="flex flex-wrap -mx-3 mb-6">
-            <form className="w-full max-w-lg" onSubmit={signUp}>
+            <form /*</div>className="w-full max-w-lg"*/ onSubmit={signUp}>
                 <label className="block text-white-700 text-sm font-bold mb-2" 
                 // for="name"
                 >
@@ -64,9 +67,12 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
                 >email</label>
-                <input className="input input-bordered w-full max-w-xs" />
+                <input 
+                className="input input-bordered w-full max-w-xs" 
+                type= 'email' placeholder="email" id="sign_up_email" />
                 <br />
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
+                id='phone'
                 // for="username"
                  >phone number</label>
                 <input className="input input-bordered w-full max-w-xs"
@@ -123,9 +129,7 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 whileTap={ {scale:0.9} }
                 className="btn glass Itemwidth HeaderCenter"
                  type='submit'  />
-
-                
-            </form>
+                 </form>
         </div>
     )
 }

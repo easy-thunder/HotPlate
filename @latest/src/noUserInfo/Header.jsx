@@ -103,16 +103,30 @@ className="btn glass Itemwidth HeaderCenter" >all menu</motion.button>
     <form 
     // className="w-full max-w-lg"  
     onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
-        <label className="block text-gray-700 text-sm font-bold mb-2" >Email</label>
-        <input  
-        className="shadow appearance-none border rleading-tight focus:outline-none focus:shadow-outline"
-        type='email' id = "sign_in_email" />
-        <br />
-        <label className="block text-gray-700 text-sm font-bold mb-2" >Password</label>
-        <input className="input input-bordered w-full max-w-xs"
-        type="password" id="sign_in_password" />
+        <div> 
+        <label className="label"> 
+        <span className="label-text text-black"> Your Email </span>
+        </label>
+        <label className="input-group">
+        <span>Email</span>
+        <input className="input input-bordered w-full max-w-xs" type='email' id = "sign_in_email" />
+        </label>
+        </div>
 
         <br />
+        <div> 
+        <label className="label"> 
+        <span className="label-text text-black passwordtext"> Your Password </span>
+        </label>
+        <label className="input-group passwordtext ">
+        <span>Password</span>
+        <input className="input input-bordered w-full max-w-xs " type='password' id = "sign_in_password"/>
+        </label>
+        </div>  
+        <br />
+
+
+
         <label>Are you an administrator?</label>
         <input type="checkbox" id="admin"/>
         <br />

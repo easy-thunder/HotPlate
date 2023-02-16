@@ -13,9 +13,49 @@ function Menu({menuItem, index , addToCart}){
  function handleCart(){
    addToCart(menuItem)
  }
-
+ console.log(menuItem)
     return(
-<>
+ <motion.div 
+ variants={staggerContainer} 
+ initial="hidden" 
+ whileInView={'show'}
+ viewport={{ once:false, amount:0.1}}
+ className='container mx-auto flex flex-col items-center text-center' 
+ > 
+<motion.div 
+variants={fadeIn('down','tween', 0.2, 1.6)}
+className= "max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl" >
+    <div className="md:flex" >
+      <div className="md:shrink-0">
+        <img src = {imageList[index]} width = "270px" className=" h-48 w-full object-cover md:h-full md:w-48" />
+      </div>
+      <div className="p-8">
+     <div className="uppercase tracking-wide text-lg leading-tight text-lg text-black-500 font-semibold" >
+        Dish Name
+     </div>
+     <motion.a href="" 
+      variants={fadeIn('down','tween', 0.4, 1.6)}
+     className=" block mt-1 text-lg leading-tight font-medium text-black hover:underline ">
+Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</motion.a>
+     <p className=" mt-2 text-slate-500" > Dish Price.00</p>
+     <motion.button 
+        whileHover={ {scale:1.1} }
+        whileTap={ {scale:0.9} }
+        className = 'button '
+        onClick={handleCart}
+        >add too order</motion.button>
+      </div>
+    </div>
+</motion.div>
+
+<br></br>
+
+
+
+
+
+
+{/* 
     <motion.div
     initial="hidden" 
     whileInView={'show'}
@@ -30,12 +70,11 @@ function Menu({menuItem, index , addToCart}){
         variants={fadeIn('down','tween', 0.4, 1.6)}
         className='my-1 text-[20px] lg:text-[30px] lg:my-6 text-accent font-semibold'>${menuItem.price}.00</motion.h3>
         
-        
         <img src = {imageList[index]} width = "270px"  />
 
         <motion.h3 
          variants={fadeIn('down','tween', 0.5, 1.6)}
-        className='.container.mx-auto text-black/70 capitalize mb-8 font-Josefin Sans Itemwidth '> {menuItem.description} </motion.h3>
+        className='.container.mx-auto text-black/70 capitalize mb-8 font-Josefin Sans Itemwidth '>{menuItem.description}</motion.h3>
 
 
 
@@ -46,9 +85,8 @@ function Menu({menuItem, index , addToCart}){
         onClick={handleCart}
         >add too order</motion.button>
 
+    </motion.div> */}
     </motion.div>
-
-    </>
     )
     
 }

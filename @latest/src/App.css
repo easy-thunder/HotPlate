@@ -108,4 +108,13 @@ margin: 0 3vw
   flex-wrap: wrap;
 }
 
+.bg{
+  background-image: url(./assets/img/menu/bg.png);
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+}
 
+.wrapper{
+up: 100%;
+}

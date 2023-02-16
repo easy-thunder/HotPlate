@@ -25,6 +25,8 @@ const [login, setLogin] = useState('')
 const [userInfo, setUserInfo] = useState({})
 const [cart, setCart] = useState([])
 const [visit, setVisits] = useState([])
+const [info,setInfo] = useState('')
+const [menuItemInfo, setMenuItemInfo] = useState({})
 
 
 
@@ -34,6 +36,8 @@ useEffect(()=>{
   .then(setMenuItems)
  .then(console.log(menuItems))
 },[])
+
+console.log(menuItems)
 
 function clearCart(){
   setCart(()=>{[]})
@@ -48,7 +52,12 @@ function clearLoginInfo(){
 function addToCart(menu_item){
 setCart([...cart ,menu_item ]) 
 }
-console.log(cart)
+// console.log(cart)
+
+function handleAddMenuItem(menuItem){
+  setInfo(info => (info + menuItem))
+  setMenuItemInfo(menuItem)
+}
 
 
 function handleLoginInfo(user){
@@ -132,7 +141,9 @@ function checkUserInfo(){
 
       {/* admin */}
         <Route exact path = "/AdminHome/jqw9repj493j984334uidsjp9934">
-          <AdminHome />
+          <AdminHome 
+        handleAddMenuItem = {handleAddMenuItem}
+          />
         </Route>
 
 
