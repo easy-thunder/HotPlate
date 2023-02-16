@@ -40,7 +40,7 @@ useEffect(()=>{
 console.log(menuItems)
 
 function clearCart(){
-  setCart(()=>{[]})
+  setCart(()=>{[[]]})
 
 }
 

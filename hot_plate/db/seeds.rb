@@ -80,9 +80,9 @@ end
 
 u1 = User.create(name: "Jake", email: "jakediehl17@gmail.com", password: "password", gluten: true, dairy: true, uuid:12345)
 
-5. times do
-Visit.create(user_id: u1, menu_item_id: m1, price_total: rand(5..100), check_number: rand(5..100), table_number: rand(5..100),)
-end
+# 5. times do
+# Visit.create(user_id: u1, menu_item_id: m1, price_total: rand(5..100), check_number: rand(5..100), table_number: rand(5..100),)
+# end
 
 
 
