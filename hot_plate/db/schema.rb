@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_16_164806) do
+ActiveRecord::Schema.define(version: 2023_02_16_204058) do
 
   create_table "chairs", force: :cascade do |t|
     t.integer "chair_number"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2023_02_16_164806) do
     t.boolean "dessert"
     t.boolean "all_times"
     t.boolean "pescetarian"
+    t.integer "visit_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -108,13 +109,24 @@ ActiveRecord::Schema.define(version: 2023_02_16_164806) do
     t.string "any_other"
   end
 
+  create_table "visit_items", force: :cascade do |t|
+    t.string "item_name"
+    t.float "item_price"
+    t.integer "menu_item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "visit_id"
+  end
+
   create_table "visits", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "menu_item_id"
+    t.string "menu_item_uuid"
     t.float "price_total"
     t.integer "check_number"
     t.string "table_number"
     t.string "uuid"
+    t.integer "menu_item_id"
+    t.string "items"
   end
 
 end

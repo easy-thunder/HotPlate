@@ -41,8 +41,8 @@ end
 
 
 post '/visits' do 
-  visit = Visit.create(params)
-  visit.menu_items << params[:menu_items]
+  visit = Visit.create(user_id: params[:user_id], price_total: params[:price_total], table_number: params[:table_number], uuid: params[:uuid], items: params[:items])
+  # visit.menu_items << params[:menu_items]
   visit.to_json
 end
 
@@ -346,18 +346,22 @@ end
   #   user.menu_items << params
   #   end
 
-patch '/visits/:uuid' do
-  visit = Visit.find do |visit|
-    if visit.uuid == params[:uuid]
-      visit.menu_items << params
-      visit.menu_items.to_json
-    end
-  end
-  # visit.menu_items << params
-  # visit.to_json
-end
+# patch '/visits/:id' do
+#     visit = Visit.find_visit(params[:id])
+#     # menu_item_found = MenuItems.find (params[:id])
 
+#     visit.menu_items << params
 
+# end
+
+# post '/visit_items' do 
+#    visit_item = VisitItem.create(params[:id])
+#     visit_item.to_json
+# end
+
+# post '/visits' do
+#   Visit.create()
+# end
 
 
 
