@@ -9,11 +9,12 @@ import{fadeIn,staggerContainer} from '../variants';
 
 function Menu({menuItem, index , addToCart}){
  const imageList = [MenuImg1, MenuImg2, MenuImg3, MenuImg4]
+//  console.log(menuItem.id)
 
  function handleCart(){
    addToCart(menuItem)
  }
- console.log(menuItem)
+//  console.log(menuItem.name)
     return(
  <motion.div 
  variants={staggerContainer} 
@@ -30,14 +31,11 @@ className= "max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:ma
         <img src = {imageList[index]} width = "270px" className=" h-48 w-full object-cover md:h-full md:w-48" />
       </div>
       <div className="p-8">
-     <div className="uppercase tracking-wide text-lg leading-tight text-lg text-black-500 font-semibold" >
-        Dish Name
-     </div>
+     <div className="uppercase tracking-wide text-lg leading-tight text-lg text-black-500 font-semibold">{menuItem.name}</div>
      <motion.a href="" 
       variants={fadeIn('down','tween', 0.4, 1.6)}
-     className=" block mt-1 text-lg leading-tight font-medium text-black hover:underline ">
-Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</motion.a>
-     <p className=" mt-2 text-slate-500" > Dish Price.00</p>
+     className=" block mt-1 text-lg leading-tight font-medium text-black hover:underline ">{menuItem.description}</motion.a>
+     <p className=" mt-2 text-slate-500" >${menuItem.price}.00</p>
      <motion.button 
         whileHover={ {scale:1.1} }
         whileTap={ {scale:0.9} }
