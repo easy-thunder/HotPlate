@@ -115,6 +115,18 @@ margin: 0 3vw
   background-size: cover;
 }
 
-.wrapper{
-up: 100%;
+.buttonLeft{
+margin-right: 200px;
 }
+
+.buttonRight{
+  margin-left: 100px;
+}
+
+.inputPlace{
+  margin-right: 100px;
+}
+.textBlock{
+  width: 100px;
+ }
+

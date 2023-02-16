@@ -7,10 +7,10 @@ import  Menu  from '../noUserInfo/Menu'
 
 
 function UserHome ({userInfo, menuItems , addToCart}){
+    let i = -1 
     const foodPreference = []
     const filteredMenuItems =[]
     const allItems = []
-
 menuItems.map(menuItem => {
         if((userInfo.pescetarian===true && menuItem.pescetarian === true) || 
         (userInfo.vegitarian === true && menuItem.vegitarian === true)
@@ -68,8 +68,6 @@ menuItems.map(menuItem => {
 
 // console.log(filteredMenuItems)
 
-
-
 return(
     <div>
         <button></button>
@@ -80,7 +78,8 @@ return(
     {filteredMenuItems.map(menuItem => {
     if(menuItem.appetizer === true){
         
-        return( <Menu menuItem={menuItem} key={menuItem.id}addToCart = {addToCart}/>)
+        return( <Menu menuItem={menuItem} key={menuItem.id}addToCart = {addToCart}  index = {i}
+             />)
     }
     })}
 <br />
@@ -88,7 +87,8 @@ return(
     {filteredMenuItems.map(menuItem => {
     if(menuItem.entree === true){
         
-        return( <Menu menuItem={menuItem} key={menuItem.id} addToCart = {addToCart}/>)
+        return( <Menu menuItem={menuItem} key={menuItem.id} addToCart = {addToCart}  index = {i}
+             />)
     }
     })}
     <br />
@@ -96,7 +96,8 @@ return(
     {filteredMenuItems.map(menuItem => {
     if(menuItem.dessert === true){
         
-        return( <Menu menuItem={menuItem} key={menuItem.id} addToCart = {addToCart}/>)
+        return( <Menu menuItem={menuItem} key={menuItem.id} addToCart = {addToCart}  index = {i}
+             />)
     }
     })}
 

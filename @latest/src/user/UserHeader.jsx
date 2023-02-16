@@ -14,18 +14,25 @@ function signOut(){
 return(
     <div>
         
-        <button onClick={signOut}>Sign Out</button>
+        <button className="btn" onClick={signOut}>Sign Out</button>
+
+
         <NavLink to ={`/profile/${login}`}>
-            <button>Profile</button>
+            <button className="btn" >Profile</button>
         </NavLink>
 
         <NavLink to ={`/userHome/${login}`} >
-            <button>Home</button>
+            <button className="btn" >Home</button>
         </NavLink>
+
+        
         {<NavLink to ={`/table/${login}`}>
-            <button>cart</button>
+            <button className="btn" >cart</button>
         </NavLink>}
+        
     </div>
+
+  
 )
 }
 

@@ -6,9 +6,8 @@ function Home({menuItems}){
 let i = -1 
     return(
         <div>
-            Current menu
         {/* <MainPhoto /> */}
-        <h3>Appetizer</h3>
+ 
         {menuItems.map(menuItem => {
         if(menuItem.appetizer === true){
             i++ 

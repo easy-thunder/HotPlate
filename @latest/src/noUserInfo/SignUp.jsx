@@ -44,25 +44,21 @@ fetch(`http://localhost:9292/users
 history.push(`/userHome/:${newUser.uuid}`)
 )
 
-
 .catch(alert("You need a stronger password or this email is already associated with this restaurant"))
-
 }
 else{alert("passwords Don't match or your password isn't long enough")}
-
-
 }
 
 
     return(
-        <div className="flex flex-wrap -mx-3 mb-6">``
+        <div className="relative z-0 w-full mb-6 group">
             <form /*</div>className="w-full max-w-lg"*/ onSubmit={signUp}>
                 <label className="block text-white-700 text-sm font-bold mb-2" 
                 // for="name"
                 >
                 Name</label>
-                <input className="input input-bordered w-full max-w-xs"
-                 type="text" placeholder="name" id="name" />
+                <input className="input input-bordered w-full max-w-xs relative z-0 w-full mb-6 group"
+                 type="text" placeholder="name" id="name" name="floating_first_name  " />
                 <br />
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"
@@ -76,36 +72,56 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 // for="username"
                  >phone number</label>
                 <input className="input input-bordered w-full max-w-xs"
-                 type='tel' placeholder="xxx-xxx-xxxx" id = "phone"/>
-                <h2>Do you have any of the following allergies or food preferences?</h2>
-                <label>gluten</label>
-                <input type='checkbox' id="gluten" />
-                <br />
-                <label>vegetarian</label>
-                <input type='checkbox' id="vegetarian" />
-                <br />
-                <label>fish</label>
-                <input type='checkbox' id="fish" />
-                <br />
-                <label>tree_nut</label>
-                <input type='checkbox' id="tree_nut" />
-                <br />
-                <label>soy</label>
-                <input type='checkbox' id="soy" />
-                <br />
-                <label>peanuts</label>
-                <input type='checkbox' id="peanuts" />
-                <br />
-                <label>shellfish</label>
-                <input type='checkbox' id="shellfish" />
-                <br />
-                <label>dairy</label>
-                <input type='checkbox' id="dairy" />
-                <br />
-                <label>pescetarian</label>
-                <input type='checkbox' id="pescetarian" />
+                 type='tel' placeholder="(xxx)-xxx-xxxx" id = "phone"/>
 
+                <h2 className="mb-4 font-semibold text-gray-900 dark:text-white">Do you have any of the following allergies or food preferences?</h2>
+                <ul
+                className=" textBlockw-48 text-sm font-medium text-gray-900 bg-white border 
+                border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"> 
+                <li> 
+                <label className=''>gluten </label>
+                <input type='checkbox' id="gluten"  className="checkbox" />
+                </li>
                 <br />
+                <li>
+                <label>vegetarian   </label>
+                <input type='checkbox' id="vegetarian" className="checkbox" />
+                </li>
+                <br />
+                <li>
+                <label>fish         </label>
+                <input type='checkbox' id="fish"  className="checkbox " />
+                </li>
+                <br />
+                <li>
+                <label>tree_nut     </label>
+                <input type='checkbox' id="tree_nut"  className="checkbox" />
+                </li>
+                <br />
+                <li>
+                <label>soy          </label>
+                <input type='checkbox' id="soy"  className="checkbox" />
+                </li>
+                <br />
+                <label>peanuts       </label>
+                <input type='checkbox' id="peanuts"   className="checkbox"/>
+                <br />
+                <li> 
+                <label>shellfish     </label>
+                <input type='checkbox' id="shellfish"   className="checkbox"/>
+                </li>
+                <br />
+                <li> 
+                <label>dairy         </label>
+                <input type='checkbox' id="dairy"   className="checkbox"/>
+                </li>
+                <br />
+                <li> 
+                <label>pescetarian   </label>
+                <input type='checkbox' id="pescetarian"  className="checkbox" />
+                </li>
+                <br />
+                </ul>
 
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"

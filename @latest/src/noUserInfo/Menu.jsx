@@ -28,7 +28,7 @@ variants={fadeIn('down','tween', 0.2, 1.6)}
 className= "max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl" >
     <div className="md:flex" >
       <div className="md:shrink-0">
-        <img src = {imageList[index]} width = "270px" className=" h-48 w-full object-cover md:h-full md:w-48" />
+        <img className="h-auto max-w-lg transition-all duration-300 rounded-lg blur-sm hover:blur-none" src = {imageList[index]} width = "270px" />
       </div>
       <div className="p-8">
      <div className="uppercase tracking-wide text-lg leading-tight text-lg text-black-500 font-semibold">{menuItem.name}</div>
