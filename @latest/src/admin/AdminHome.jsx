@@ -44,6 +44,7 @@ function AdminHome({handleAddMenuItem}){
             dessert: e.target.dessert.checked,
             drink: e.target.drink.checked,
             alcohol: e.target.alcohol.checked,
+            image: e.target.photo.value
         }
 
         fetch(`http://localhost:9292/menu_items`,{
@@ -91,7 +92,7 @@ return(
                  <label>Photo?</label>
                  <input className="block w-full text-sm text-gray-900 border border-gray-300 
                  rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 
-                 dark:border-gray-600 dark:placeholder-gray-400" type='file' id="photo" />
+                 dark:border-gray-600 dark:placeholder-gray-400" type='url' id="photo" />
                  <br />
                 <h2>Mark any potential allergies and dietary preferences this dish caters too.</h2>
                 <label className="text-black">gluten     </label>
@@ -101,7 +102,7 @@ return(
                 <input type='checkbox' id="vegetarian"  className="checkbox" />
                 <br />
                 <label className="text-black">fish        </label>
-                <input type='checkbox' id="fish "  className="checkbox" />
+                <input type='checkbox' id="fish"  className="checkbox" />
                 <br />
                 <label className="text-black">tree_nut     </label>
                 <input type='checkbox' id="tree_nut" className="checkbox"  />

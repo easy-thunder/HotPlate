@@ -44,9 +44,8 @@ fetch(`http://localhost:9292/users
 history.push(`/userHome/:${newUser.uuid}`)
 )
 
-.catch(alert("You need a stronger password or this email is already associated with this restaurant"))
 }
-else{alert("passwords Don't match or your password isn't long enough")}
+else{alert("passwords Don't match or your password isn't long enough or you need a unique password and email address.")}
 }
 
 
