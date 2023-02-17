@@ -21,7 +21,7 @@ return(
             position: "absolute",
 
             marginTop: `${y}em `,
-            left: `${x}em`,
+            marginLeft: `${x}em`,
             height: '2em',
             width: "2em",
             border: "solid 1px",

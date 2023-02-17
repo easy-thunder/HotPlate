@@ -12,7 +12,7 @@ function RenderSquareTable({squareTable}){
     }
 
 const y = Math.floor((squareTable.grid_number/67)*2);
-const x = squareTable.grid_number%67*2;
+const x = (squareTable.grid_number%67)*2;
 
 
 return(
@@ -22,7 +22,7 @@ return(
             position: "absolute",
 
             marginTop: `${y}em `,
-            left: `${x}em`,
+            marginLeft: `${x}em`,
             height: '2em',
             width: "2em",
             border: "solid 1px",

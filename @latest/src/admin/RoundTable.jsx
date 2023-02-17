@@ -29,7 +29,7 @@ setUser(()=>!user)
             marginTop: `${y}em `,
             // top: `${y}px`,
             // paddingLeft: `${x}px`,
-            left: `${x}em`,
+            marginLeft: `${x}em`,
             height: radius*2+"em",
             width: radius*2+"em",
             border: "solid 1px",
@@ -39,8 +39,6 @@ setUser(()=>!user)
             backgroundColor: user ? "red" : "yellow",
             center: Text,
             // zIndex: "7",
-            
-            
         }}
         onClick={userHere}
         className='pointer'

@@ -31,7 +31,7 @@ function RenderRoundTable({roundTable}){
 
             marginTop: `${y}em `,
 
-            left: `${x}em`,
+            marginLeft: `${x}em`,
             height: roundTable.radius*2+"em",
             width: roundTable.radius*2+"em",
             border: "solid 1px",
