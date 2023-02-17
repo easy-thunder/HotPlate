@@ -75,9 +75,10 @@ else{alert("passwords Don't match or your password isn't long enough")}
                  type='tel' placeholder="(xxx)-xxx-xxxx" id = "phone"/>
 
                 <h2 className="mb-4 font-semibold text-gray-900 dark:text-white">Do you have any of the following allergies or food preferences?</h2>
-                <ul
+                {/* <ul
                 className=" textBlockw-48 text-sm font-medium text-gray-900 bg-white border 
-                border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"> 
+                border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">  */}
+                {/* <ul className='textBlock text-sm font-medium text-gray-900  '>  */}
                 <li> 
                 <label className=''>gluten </label>
                 <input type='checkbox' id="gluten"  className="checkbox" />
@@ -121,7 +122,7 @@ else{alert("passwords Don't match or your password isn't long enough")}
                 <input type='checkbox' id="pescetarian"  className="checkbox" />
                 </li>
                 <br />
-                </ul>
+                {/* </ul> */}
 
                 <label className="block text-gray-700 text-sm font-bold mb-2" 
                 // for="username"

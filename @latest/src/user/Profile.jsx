@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom"
 import { useState } from "react"
+// import {fadeIn ,staggerContainer} from "framer-motion"
 
 function Profile({userInfo, setLogin,  clearLoginInfo, setUserInfo, handleLoginInfo, login}){
 const history = useHistory()
@@ -88,25 +89,25 @@ if(userInfo.pescetarian === true){dietaryPreference.push("pescetarian")}
 
         <div>
             <div>
-            <h1>Your profile</h1>
-            <label>name:</label>
-            <h3>{userInfo.name}</h3>
-            <label>email:</label>
-            <h3>{userInfo.email}</h3>
-            <label>points</label>
-            <h3>{userInfo.points}</h3>
-            <label>phone number</label>
-            <h3>{userInfo.phone_number}</h3>
-            <h2>Your allergies</h2>
-            {allergies.map(allergy => <h3>{allergy}</h3>)}
-            <h2>Your dietary preference</h2>
+            <h1  className='h1 capitalize' >Your profile</h1>
+            <label className="text-white" >name:</label>
+            <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userInfo.name}</h3>
+            <label className="text-white" >email:</label>
+            <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userInfo.email}</h3>
+            <label className="text-white" >points 0 </label>
+            <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >{userInfo.points}</h3>
+            <label className="text-white" >phone number</label>
+            <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{userInfo.phone_number}</h3>
+            <h2 className="text-white" >Your allergies</h2>
+            {allergies.map(allergy => <h3 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >{allergy}</h3>)}
+            <h2 className="text-white" >Your dietary preference</h2>
             {dietaryPreference.map(preference => <h3>{preference}</h3>)}
 
-            <h2>Any other preference or allergy you want your chef to know.</h2>
-            <p>{userInfo.any_other}</p>
+            <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Any other preference or allergy you want your chef to know.</h2>
+            <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >{userInfo.any_other}</p>
             </div>
-            <button onClick={deleteProfile}>delete profile</button>
-            <h2 className="pointer" onClick={()=> setOpen(open=>(!open))}>update your profile</h2>
+            <button className="btn inputPlace " onClick={deleteProfile}>delete profile</button>
+            <h2 className="pointer btn " onClick={()=> setOpen(open=>(!open))}>update your profile</h2>
               <form className={`${open ? "block" : "hidden"}`} onSubmit={updateProfile}>
                 <label>name</label>
                 <input type="text" placeholder="name" defaultValue={userInfo.name} id="name"/>

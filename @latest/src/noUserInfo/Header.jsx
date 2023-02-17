@@ -4,7 +4,6 @@ import "../App.css"
 import {motion} from "framer-motion"
 import{fadeIn,staggerContainer} from '../variants';
 // import { MenuItem } from "@material-tailwind/react";
-import Headerr from "./Header2";
 
 
 
@@ -56,10 +55,11 @@ function validateUser(e){
 
 
 <dev>
-    <h1>Test</h1>
+    
 </dev>
 
     return(
+        
  <div> 
 <div className="w-full text-white flex justify-between p-4 item-center"> 
 <motion.div  
@@ -101,7 +101,7 @@ all menu</motion.button>
 </motion.div> 
 </div>
 <div>
-
+</div>
     <form 
     // className="w-full max-w-lg"  
     onSubmit={validateUser} className={`${open ? "block" : "hidden"}`}>
@@ -173,7 +173,7 @@ text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#05070
         <input 
         type='submit'/>
     </form>
- </div>
+
  </div>
     ) 
 }

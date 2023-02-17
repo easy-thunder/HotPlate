@@ -8,7 +8,7 @@ function CartItem ({item}){
     console.log("test")
 
     return(
-        
+    <div> 
     <motion.div
     initial="hidden" 
     whileInView={'show'}
@@ -33,8 +33,6 @@ function CartItem ({item}){
          variants={fadeIn('down','tween', 0.5, 1.6)}
         className='.container.mx-auto text-white/70 capitalize mb-8 font-Josefin Sans Itemwidth '> {item.description} </motion.h3>
 
-
-
         {/* <motion.button 
         whileHover={ {scale:1.1} }
         whileTap={ {scale:0.9} }
@@ -44,6 +42,9 @@ function CartItem ({item}){
 
     </motion.div>
 
+
+
+    </div>
     
     )
 }

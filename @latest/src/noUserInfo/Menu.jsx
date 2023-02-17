@@ -23,6 +23,8 @@ function Menu({menuItem, index , addToCart}){
  viewport={{ once:false, amount:0.1}}
  className='container mx-auto flex flex-col items-center text-center' 
  > 
+ <div className='.container mx auto' > 
+ <div> 
 <motion.div 
 variants={fadeIn('down','tween', 0.2, 1.6)}
 className= "max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl" >
@@ -45,6 +47,8 @@ className= "max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:ma
       </div>
     </div>
 </motion.div>
+</div>
+</div>
 
 <br></br>
 

@@ -126,7 +126,14 @@ margin-right: 200px;
 .inputPlace{
   margin-right: 100px;
 }
-.textBlock{
-  width: 100px;
- }
+.priceTotal{
+  margin-bottom: 40px;
+}
 
+.submitTop{
+  margin-top: 70px;
+}
+
+.textLeft{
+  margin-left: 100px;
+}
